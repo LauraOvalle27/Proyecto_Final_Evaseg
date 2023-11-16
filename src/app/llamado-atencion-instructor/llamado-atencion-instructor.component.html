@@ -66,7 +66,7 @@
         <div class="row">
             <div class="col-sm-12" id="semicolumn">
                 <h3>Llamado de atención</h3>
-                <form class="form" *ngIf="structure">
+                <form class="form">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="mb-3">
@@ -108,13 +108,13 @@
                         <div class="col-sm-6">
                             <div class="mb-3">
                                 <label for="causesAprendiz" class="form-label">Causas del llamado</label>
-                                <textarea class="form-control" id="causes" [(ngModel)]="causasLlamado"
+                                <textarea class="form-control" id="causes" [(ngModel)]="causasProceso"
                                     name="causas-llamado"></textarea>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="mb-3">
-                                <label for="branchAprendiz" class="form-label" (click)="openPDF()">Faltas (Escriba el número de la fata
+                                <label for="branchAprendiz" class="form-label" (click)="onFileSelected($event)">Faltas (Escriba el número de la fata
                                     según el manual del aprendiz)</label>
                                 <input type="text" class="form-control" id="branchAprendiz"
                                     name="coordinacion-aprendiz">

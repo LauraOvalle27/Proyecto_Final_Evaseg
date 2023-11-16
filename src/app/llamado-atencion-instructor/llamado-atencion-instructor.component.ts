@@ -14,9 +14,7 @@ export class LlamadoAtencionInstructorComponent implements OnInit {
     private router: Router,
     private http: HttpClient,
     
-    ){}
-
-  structure = true;
+    ){}  
 
   infoPersona: any;
   idInstructor: string = '';
@@ -41,20 +39,21 @@ export class LlamadoAtencionInstructorComponent implements OnInit {
   informacionFicha: any;
   programaFormacionAprendiz: string = '';
   coordinacionAprendiz: string = '';
+  faltasManual: string = '';
   numeroLLamado: String = '';
-  causasLlamado: string = '';
+  causasProceso: string = '';
  
   message = '';
   
   numeroDocumentoAprendizEnvio = 0;
   numeroDocumentoInstructorEnvio = 0;
-  formDataEnvio: any;
+  formDataEnvio: any;  
 
   
   
 
   ngOnInit() {
-    // Sse obtiene la información del instructor del localStorage.
+    // Se obtiene la información del instructor del localStorage.
     this.infoPersona = localStorage.getItem('infoPersona');
     this.infoPersona = JSON.parse(this.infoPersona);
 
@@ -181,8 +180,8 @@ export class LlamadoAtencionInstructorComponent implements OnInit {
         this.coordinacionAprendiz == null ||
         this.numeroLLamado == 'Número de Llamado..' ||
         this.numeroLLamado == null || 
-        this.causasLlamado == '' ||
-        this.causasLlamado == null ||
+        this.causasProceso == '' ||
+        this.causasProceso == null ||
         this.formDataEnvio == null  ||
         this.formDataEnvio == undefined
     ){
@@ -205,13 +204,20 @@ export class LlamadoAtencionInstructorComponent implements OnInit {
     this.numeroDocumentoAprendizEnvio = this.validatedata.id
     const fechaEnvio = this.currentDate();
     this.numeroDocumentoInstructorEnvio = this.fichaChoice.id;
+    // el tipo de proceso es 1 porque corresponde con llamado de atención.
     const tipoProcesoEnvio = 1;
+    // la calificación de la falta en llamado de atención es por defecto 'leve'
+    const calificacionFalta = 'leve';
+    // el proceso por defecto debe ser activo:
+    const procesoActivo = true;
 
     // Se construye el el cuerpo para ser envido por el método post
     
     const body = new FormData();
     body.append('fechaCreacionProceso', fechaEnvio);
-    body.append('causasProceso', this.causasLlamado);
+    body.append('calificaciónFalta', calificacionFalta);
+    body.append('proceso_activo', procesoActivo.toString());
+    body.append('causasProceso', this.causasProceso);
     body.append('RutaEvidenciasProceso', this.formDataEnvio);
     body.append('tipoProcesoFK', tipoProcesoEnvio.toString());
     body.append('idInstructorFK', this.numeroDocumentoInstructorEnvio.toString());
@@ -225,7 +231,17 @@ export class LlamadoAtencionInstructorComponent implements OnInit {
       response => {
         // Manejo de la respuesta exitosa:
         console.log('Respuesta:', response);
-        this.showAlert();
+        Swal.fire({
+          title: "¡Muy bien!",
+          text: "Los decargos han sido enviados correctamente!",
+          icon: "success",
+          confirmButtonText: "OK",
+          confirmButtonColor: "#63a154",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload();
+          }
+        });
       },
       error => {
         // Manejor de errores:
@@ -242,32 +258,6 @@ export class LlamadoAtencionInstructorComponent implements OnInit {
     const day = fecha.getDate().toString().padStart(2, '0'); // Asegura que el día tenga 2 dígitos  
     return `${year}-${month}-${day}`;
   }
-
-  showAlert(){
-    Swal.fire({
-      title: "¡Muy bien!",
-      text: "Los decargos han sido enviados correctamente!",
-      icon: "success",
-      confirmButtonText: "OK",
-      confirmButtonColor: "#63a154",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        location.reload();
-      }
-    });
-  }
-
-  // Abrir manual del aprendiz en página especifica
-
-  openPDF(): void {
-    
-    const pdfURL = 'https://www.poli.edu.co/sites/default/files/reglamento-aprendiz-2012-sena.pdf';
-    const numeroDePagina = 13; 
-  
-    // Abre el PDF en una nueva ventana o pestaña con el número de página específico
-    window.open(`${pdfURL}#page=${numeroDePagina}`, '_blank');
-  }
-  
-
 }
+
 

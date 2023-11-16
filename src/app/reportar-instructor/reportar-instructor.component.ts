@@ -45,6 +45,7 @@ export class ReportarInstructorComponent implements OnInit{
     numeroDocumentoAprendizEnvio = 0;
     numeroDocumentoInstructorEnvio = 0;
     formDataEnvio: any;
+    calificacionFalta: string = '';
 
   ngOnInit() {
     // Sse obtiene la información del instructor del localStorage.
@@ -133,7 +134,7 @@ export class ReportarInstructorComponent implements OnInit{
     // se valida que todos los campos sean no nulos o que sean distintos a los que viene por defecto.
     if( this.fichaChoice == 'Ficha...' || 
         this.fichaChoice == null ||
-        this.aprendizChoice == 'Aprendiz..' ||
+        this.aprendizChoice == 'Aprendiz...' ||
         this.aprendizChoice == null ||
         this.numeroDocumentoAprendiz == '' ||
         this.numeroDocumentoAprendiz == null ||
@@ -143,6 +144,8 @@ export class ReportarInstructorComponent implements OnInit{
         this.coordinacionAprendiz == null ||
         this.causasProceso == '' ||
         this.causasProceso == null ||
+        this.calificacionFalta == 'Calificación de la falta...' ||
+        this.calificacionFalta == '' ||
         this.formDataEnvio == null  ||
         this.formDataEnvio == undefined
     ){
@@ -159,18 +162,23 @@ export class ReportarInstructorComponent implements OnInit{
     }
   }
 
-  sendInformation(){    
-    console.log('hi')
+  sendInformation(){
     // Se obtiene toda la información necesaria para realizar un método post.
     this.numeroDocumentoAprendizEnvio = this.validatedata.id
     const fechaEnvio = this.currentDate();
     this.numeroDocumentoInstructorEnvio = this.fichaChoice.id;
     const tipoProcesoEnvio = 3;
+    const calificacionFalta = this.calificacionFalta
+    // el proceso por defecto debe ser activo:
+    const procesoActivo = true;
+
 
     // Se construye el el cuerpo para ser envido por el método post
     
     const body = new FormData();
     body.append('fechaCreacionProceso', fechaEnvio);
+    body.append('calificaciónFalta', calificacionFalta);
+    body.append('proceso_activo', procesoActivo.toString())
     body.append('causasProceso', this.causasProceso);
     body.append('RutaEvidenciasProceso', this.formDataEnvio);
     body.append('tipoProcesoFK', tipoProcesoEnvio.toString());
@@ -184,7 +192,17 @@ export class ReportarInstructorComponent implements OnInit{
     this.http.post('http://127.0.0.1:8000/evaseg_app/procesos/', body, { headers: headers }).subscribe(
       response => {
         // Manejo de la respuesta exitosa:
-        this.showAlert();
+        Swal.fire({
+          title: "¡Muy bien!",
+          text: "Los datos han sido enviados correctamente!",
+          icon: "success",
+          confirmButtonText: "OK",
+          confirmButtonColor: "#63a154",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload();
+          }
+        });
       },
       error => {
         // Manejor de errores:
@@ -201,31 +219,4 @@ export class ReportarInstructorComponent implements OnInit{
     const day = fecha.getDate().toString().padStart(2, '0'); // Asegura que el día tenga 2 dígitos  
     return `${year}-${month}-${day}`;
   }
-
-  showAlert(){
-    Swal.fire({
-      title: "¡Muy bien!",
-      text: "Los decargos han sido enviados correctamente!",
-      icon: "success",
-      confirmButtonText: "OK",
-      confirmButtonColor: "#63a154",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        location.reload();
-      }
-    });
-  }
-
-  // Abrir manual del aprendiz en página especifica
-
-  openPDF(): void {
-    
-    const pdfURL = 'https://www.poli.edu.co/sites/default/files/reglamento-aprendiz-2012-sena.pdf';
-    const numeroDePagina = 13; 
-  
-    // Abre el PDF en una nueva ventana o pestaña con el número de página específico
-    window.open(`${pdfURL}#page=${numeroDePagina}`, '_blank');
-  }
-
-
 }
