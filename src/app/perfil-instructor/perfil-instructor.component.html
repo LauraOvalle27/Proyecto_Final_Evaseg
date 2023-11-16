@@ -1,0 +1,74 @@
+<div>
+    <header>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="bi bi-list"></i>
+            </label>
+            <a href="#" class="url">
+                <img src="../../assets/images/evaseg-logo21.png" class="logo">
+            </a>
+            <ul>
+                <li>
+                    <button type="button" class="btn btn" (click)="goTonextPage('/inicioInstructor')">
+                        <i class="bi bi-house"></i> Inicio
+                    </button>
+                </li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/llamadosInstructor')">
+                        <i class="bi bi-exclamation-circle"></i> Llamados de atención
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/reportarAprendiz')">
+                        <i class="bi bi-file-text"></i> Reportar aprendiz
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/historialInstructor')">
+                        <i class="bi bi-flag"></i> Consultar historial
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/bandejaInstructor')">
+                        <i class="bi bi-inbox"></i> Bandeja de entrada
+                    </button></li>
+                <li>
+                    <button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilInstructor')">
+                        <i class="bi bi-person"></i> Perfil Instructor
+                    </button> 
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+        <div class="row">
+            <div class="col-sm-3" id="column1">
+                <img src="../../assets/images/evaseg-logo21.png" class="logo-menu">
+                <br>
+                <button type="submit" class="btn btn" (click)="goTonextPage('inicioInstructor')">
+                    <i class="bi bi-house"></i> Inicio
+                </button>
+                <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/llamadosInstructor')">
+                    <i class="bi bi-exclamation-circle"></i> Llamado de antención
+                </button>
+                <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/reportarAprendiz')">
+                    <i class="bi bi-flag"></i> Reportar aprendiz
+                </button>
+                <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/historialInstructor')">
+                    <i class="bi bi-search"></i> Consultar historial
+                </button>
+                <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/bandejaInstructor')">
+                    <i class="bi bi-inbox"></i> Bandeja de entrada
+                </button>
+                <button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilInstructor')">
+                    <i class="bi bi-person"></i> Perfil Instructor
+                </button>
+
+            </div>
+            <div class="col-sm-9" id="column2">
+                <div class="photo-instructor">
+                </div>
+                <div class="personal-data">
+                    <li class="list-group-item">Nombre {{nombrePersona}}</li>
+                    <li class="list-group-item">Correo Electronico {{emailPersona}}</li>
+                    <div class="log-out">
+                        <button type="submit" class="btn btn-logout">Cerrar Sesión</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

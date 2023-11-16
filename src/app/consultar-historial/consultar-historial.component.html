@@ -1,0 +1,129 @@
+<div>
+    <header>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="bi bi-list"></i>
+            </label>
+            <a href="#" class="url">
+                <img src="../../assets/images/evaseg-logo21.png" class="logo">
+            </a>
+            <ul>
+                <li>
+                    <button type="button" class="btn btn" (click)="goTonextPage('/inicioInstructor')">
+                        <i class="bi bi-house"></i> Inicio
+                    </button>
+                </li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/llamadosInstructor')">
+                        <i class="bi bi-exclamation-circle"></i> Llamados de atención
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/reportarAprendiz')">
+                        <i class="bi bi-file-text"></i> Reportar aprendiz
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/historialInstructor')">
+                        <i class="bi bi-flag"></i> Consultar historial
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/bandejaInstructor')">
+                        <i class="bi bi-inbox"></i> Bandeja de entrada
+                    </button></li>
+                <li>
+                    <button type="submit" class="btn btn-profile" id="icono"
+                        (click)="goTonextPage('/perfilInstructor')">
+                        <i class="bi bi-person"></i> Perfil Instructor
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+        <div class="row">
+            <div id="column1">
+                <img src="../../assets/images/evaseg-logo21.png" class="logo-menu">
+                <br>
+                <button type="submit" class="btn btn" (click)="goTonextPage('inicioInstructor')">
+                    <i class="bi bi-house"></i> Inicio
+                </button>
+                <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/llamadosInstructor')">
+                    <i class="bi bi-exclamation-circle"></i> Llamado de antención
+                </button>
+                <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/reportarAprendiz')">
+                    <i class="bi bi-flag"></i> Reportar aprendiz
+                </button>
+                <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/historialInstructor')">
+                    <i class="bi bi-search"></i> Consultar historial
+                </button>
+                <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/bandejaInstructor')">
+                    <i class="bi bi-inbox"></i> Bandeja de entrada
+                </button>
+                <button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilInstructor')">
+                    <i class="bi bi-person"></i> Perfil Instructor
+                </button>
+            </div>
+        </div>
+        <div id="column2" *ngIf="structure">
+            <div class="row">
+                <div class="col-sm-12" id="semicolumn">
+                    <h3>Consultar Historial</h3>
+                    <form class="form">
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="fichaAprendiz" class="form-label">Ficha</label>
+                                <select class="form-select" id="fichaAprendiz" [(ngModel)]="fichaChoice"
+                                    name="ficha-seleccionada" (change)="apprenticeCard()">
+                                    <option selected>Ficha...</option>
+                                    <option *ngFor="let item of dataFichas" [ngValue]="item">{{item.idFichaFK}}</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="fichaAprendiz" class="form-label">Nombre Aprendiz</label>
+                                <select class="form-select" id="fichaAprendiz" [(ngModel)]="aprendizChoice"
+                                    name="aprendiz-seleccionado" (change)="updateFields()">
+                                    <option selected>Aprendiz..</option>
+                                    <option *ngFor="let item of listaInformacionAprendiz" [ngValue]="item">
+                                        {{item.first_name}} {{item.second_name}} {{item.last_name}}
+                                        {{item.second_last_name}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="nameAprendiz" class="form-label">Número de documento</label>
+                                <input type="text" class="form-control" id="nameAprendiz"
+                                    [(ngModel)]="numeroDocumentoAprendiz" name="numero-documento">
+                            </div>
+                            <div class="mb-3">
+                                <label for="programAprendiz" class="form-label">Programa de formación</label>
+                                <input type="text" class="form-control" id="programAprendiz"
+                                    [(ngModel)]="programaFormacionAprendiz" name="programa-formacion">
+                            </div>
+                            <div class="col-mb-3">
+                                <div class="mb-3 text-center">
+                                    <button type="submit" class="btn btn-submit"
+                                        (click)="validateFields()">Consultar</button>
+                                    <p id="message">{{message}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="column2" *ngIf="!structure">
+            
+                <div class="col-sm-6" *ngFor="let item of historialProcesos">
+                    <div class="card" id="process">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {{ item.tipoProcesoFK === 1 ? 'Llamado de atención' :
+                                item.tipoProcesoFK === 2 ? 'Felicitación' :
+                                'Reporte a comité de evaluación y seguimiento'}}
+                            </h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">id proceso: {{item.id}}</h6>
+                            <p class="card-text">{{item.causasProceso}}</p>
+                            <a>Fecha Creación: {{item.fechaCreacionProceso}}</a>
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+</div>

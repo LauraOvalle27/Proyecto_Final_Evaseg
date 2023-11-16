@@ -1,0 +1,93 @@
+<div>
+    <header>
+        <nav>
+          <input type="checkbox" id="check">
+          <label for="check" class="checkbtn">
+            <i class="bi bi-list"></i>
+          </label>
+          <a href="#" class="url">
+            <img src="../../assets/images/evaseg-logo21.png" class="logo">
+          </a>
+          <ul>
+            <li><button type="submit" class="btn btn" (click)="goTonextPage('inicioCoordinacion')" >
+                <i class="bi bi-house"></i> Inicio
+            </button></li>
+            <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('llamadosCoordinacion')" >
+                <i class="bi bi-exclamation-circle"></i> Llamados
+            </button></li>
+            <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('felicitacionCoordinacion')" >
+                <i class="bi bi-bookmark-check"></i> Felicitación
+            </button></li>
+            <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('fallosCoordinacion')">
+                <i class="bi bi-file-text"></i> Fallos
+            </button></li>
+            <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('actasCoordinacion')">
+                <i class="bi bi-files"></i> Actas
+            </button></li>
+            <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaCoordinacion')" >
+                <i class="bi bi-inbox"></i> Bandeja de entrada
+            </button></li>
+            <li><button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilCoordinacion')">
+                <i class="bi bi-person"></i> Perfil Coordianción
+            </button></li>
+          </ul>
+        </nav>
+      </header>
+    <div class="row">
+        <div class="col-sm-3" id="column1" >
+            <img src="../../assets/images/evaseg-logo21.png" class="logo-menu">
+            <br>
+            <button type="submit" class="btn btn" (click)="goTonextPage('inicioCoordinacion')" >
+                <i class="bi bi-house"></i> Inicio
+            </button>
+            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('llamadosCoordinacion')" >
+                <i class="bi bi-exclamation-circle"></i> Llamados
+            </button>
+            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('felicitacionCoordinacion')" >
+                <i class="bi bi-bookmark-check"></i> Felicitación
+            </button>
+            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('fallosCoordinacion')">
+                <i class="bi bi-file-text"></i> Fallos
+            </button>
+            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('actasCoordinacion')">
+                <i class="bi bi-files"></i> Actas
+            </button>
+            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaCoordinacion')" >
+                <i class="bi bi-inbox"></i> Bandeja de entrada
+            </button>
+            <button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilCoordinacion')">
+                <i class="bi bi-person"></i> Perfil Coordianción
+            </button>
+            
+        </div>
+        <div class="col-md-9 col-sm-12" id="column2">
+            <div class="row">
+                <div class="col-sm-12" id="semicolumn">
+                    <h3>Actas</h3>
+                    <form class="form">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="container">
+                                <div class="nameAprendiz">
+                                    Seleccione la fecha en la que desea generar el acta
+                                </div>
+                                <div class="calendar">
+                                    <div>
+                                        <input type="date" id="date-acta" name="date-acta">
+                                    </div>
+                                </div>
+                                <div class="mb-3 text-center"> 
+                                    <button type="submit" class="btn btn-submit">Consultar</button>
+                                </div>
+
+                            </div>
+                              
+                            </div>
+                                                     
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

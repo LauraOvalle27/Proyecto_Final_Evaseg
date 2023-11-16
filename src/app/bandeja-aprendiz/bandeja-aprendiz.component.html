@@ -1,0 +1,59 @@
+<div>
+    <header>
+        <nav>
+          <input type="checkbox" id="check">
+          <label for="check" class="checkbtn">
+            <i class="bi bi-list"></i>
+          </label>
+          <a href="#" class="url">
+            <img src="../../assets/images/evaseg-logo21.png" class="logo">
+          </a>
+          <ul>
+            <li><button type="submit" class="btn btn" (click)="goTonextPage('/inicioAprendiz')" >
+                <i class="bi bi-house"></i> Inicio
+            </button></li>
+            <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('miHistorial')" >
+                <i class="bi bi-book"></i> Mi historial
+            </button></li>
+            <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('citacionesAprendiz')" >
+                <i class="bi bi-calendar-event"></i> Citaciones
+            </button></li>
+            <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('descargosAprendiz')">
+                <i class="bi bi-pencil"></i> Descargos
+            </button></li>
+           
+            <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaAprendiz')" >
+                <i class="bi bi-inbox"></i> Bandeja de entrada
+            </button></li>
+            <li><button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilAprendiz')">
+                <i class="bi bi-person"></i> Perfil Aprendiz
+            </button></li>
+          </ul>
+        </nav>
+      </header>
+    <div class="row">
+        <div class="col-sm-3" id="column1" >
+            <img src="../../assets/images/evaseg-logo21.png" class="logo-menu">
+            <br>
+            <button type="submit" class="btn btn" (click)="goTonextPage('inicioAprendiz')">
+                <i class="bi bi-house"></i> Inicio
+            </button>
+            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('miHistorial')">
+                <i class="bi bi-book"></i> Mi historial
+            </button>
+            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('citacionesAprendiz')">
+                <i class="bi bi-calendar-event"></i> Citaciones
+            </button>
+            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('descargosAprendiz')">
+                <i class="bi bi-pencil"></i> Descargos
+            </button>
+            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaAprendiz')">
+                <i class="bi bi-bell"></i> Bandeja de entrada
+            </button>
+            <button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilAprendiz')">
+                <i class="bi bi-person"></i> Perfil Aprendiz
+            </button>
+            
+        </div>
+    </div>
+</div>

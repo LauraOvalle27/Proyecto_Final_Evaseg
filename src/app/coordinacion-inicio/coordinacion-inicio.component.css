@@ -1,0 +1,67 @@
+ /* Estilos página inicio perfil coordinación */
+
+#column2 {
+    display: flex;
+    flex-direction: column; /* Cambia la dirección de los elementos a columna */
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Alinea el contenido horizontalmente */
+}
+  
+.home-logo{
+    width: 500px;
+}
+  
+.title-welcome{
+    margin-top: 20px;
+}
+  
+.card{
+    width: 250px;
+    height: 200px;
+    background-color: #6d9d6d;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+}
+  
+
+.bi{
+    font-size: 50px;
+    justify-content: center;
+    align-items: center;
+    display: flex; /* Hace que el contenido sea un contenedor flex */
+    margin-top: 30px;
+}
+  
+.row {
+    margin-bottom: 50px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Asegura que las filas se envuelvan si no caben en una sola línea */
+    text-align: center;
+}
+
+#row-2{
+    margin-left: 100px;
+}
+
+.cointainer2{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Crea tres columnas de igual ancho */
+    gap: 10px; /* Espacio entre las columnas */
+    margin-top: 50px;
+}
+
+@media (max-width: 1030px) {
+
+    .home-logo{
+        width: 300px;
+    }
+
+    .row-2{
+        margin: 0 auto;
+    }
+
+}
+  

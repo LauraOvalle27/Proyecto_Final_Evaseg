@@ -1,0 +1,102 @@
+<div>
+    <header>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="bi bi-list"></i>
+            </label>
+            <a href="#" class="url">
+                <img src="../../assets/images/evaseg-logo21.png" class="logo">
+            </a>
+            <ul>
+                <li><button type="submit" class="btn btn" (click)="goTonextPage('/inicioAprendiz')">
+                        <i class="bi bi-house"></i> Inicio
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('miHistorial')">
+                        <i class="bi bi-book"></i> Mi historial
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('citacionesAprendiz')">
+                        <i class="bi bi-calendar-event"></i> Citaciones
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('descargosAprendiz')">
+                        <i class="bi bi-pencil"></i> Descargos
+                    </button></li>
+
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaAprendiz')">
+                        <i class="bi bi-inbox"></i> Bandeja de entrada
+                    </button></li>
+                <li>
+                    <button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilAprendiz')">
+                        <i class="bi bi-person"></i> Perfil Aprendiz
+                    </button> 
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="row">
+        <div class="col-sm-3" id="column1">
+            <img src="../../assets/images/evaseg-logo21.png" class="logo-menu">
+            <br>
+            <button type="submit" class="btn btn" (click)="goTonextPage('inicioAprendiz')">
+                <i class="bi bi-house"></i> Inicio
+            </button>
+            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('miHistorial')">
+                <i class="bi bi-book"></i> Mi historial
+            </button>
+            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('citacionesAprendiz')">
+                <i class="bi bi-calendar-event"></i> Citaciones
+            </button>
+            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('descargosAprendiz')">
+                <i class="bi bi-pencil"></i> Descargos
+            </button>
+            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaAprendiz')">
+                <i class="bi bi-bell"></i> Bandeja de entrada
+            </button>
+            <button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilAprendiz')">
+                <i class="bi bi-person"></i> Perfil Aprendiz
+            </button>
+
+        </div>
+        <div class="col-md-9 col-sm-12" id="column2" *ngIf="structure">
+            <div class="row">
+                <div class="col-sm-12" id="semicolumn">
+                    <h3>Consultar Historial</h3>
+                    <form class="form">
+                        <div class="row">
+                            <div class="mb-3">
+                                <select class="form-select" id="fichaAprendiz" [(ngModel)]="relacionFichaAprendiz"
+                                    name="ficha-seleccionada">
+                                    <option selected>Tipo de proceso...</option>
+                                    <option *ngFor="let item of historialProcesos" [ngValue]="item">
+                                        {{item.tipoProcesoFK}}</option>
+                                </select>
+                            </div>
+                            <div class="col-mb-3">
+                                <div class="mb-3 text-center">
+                                    <button type="submit" class="btn btn-submit"
+                                        (click)="consultarHistorial()">Consultar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 col-sm-12" id="column2" *ngIf="!structure">
+            <div class="col-sm-6" *ngFor="let item of historialProcesos">
+                <div class="card" id="process">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{ item.tipoProcesoFK === 1 ? 'Llamado de atención' :
+                            item.tipoProcesoFK === 2 ? 'Felicitación' :
+                            'Reporte a comité de evaluación y seguimiento'}}
+                        </h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">id proceso: {{item.id}}</h6>
+                        <p class="card-text">{{item.causasProceso}}</p>
+                        <a>Fecha Creación: {{item.fechaCreacionProceso}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

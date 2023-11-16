@@ -1,0 +1,200 @@
+/* Estilos perfil coordinación */
+
+
+/* Estilos nav responsive */
+
+nav{
+    height: 90px;
+    width: 100%;
+    position: fixed;
+    z-index: 1000; /* Coloca el menú en un nivel superior */
+}
+
+.url{
+    position: absolute;
+    padding: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+    line-height: 30px;
+    margin: 0 10px;
+    margin-right: 30px;
+    display: none;
+}
+
+nav ul li a {
+    color: black ;
+    font-size: 30px;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Libre Baskerville', serif;
+    display: none;
+}
+
+.checkbtn{
+    font-size: 30px;
+    color: #6d9d6d;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#check{
+    display: none;
+}
+
+.logo{
+    display: none;
+}
+
+@media (max-width: 1180px){
+
+    .checkbtn{
+        display: block;
+    }
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 80px;
+        left: -150%;
+        transition: all .5s;
+        background-color: rgb(240, 240, 240);
+    }
+    nav{
+        background-color: rgb(240, 240, 240);
+    }
+    nav ul li{
+        display: block;
+        margin: 20px 0;
+        line-height: 30px;
+    }
+    nav ul li a{
+        font-size: 30px;
+    }
+    #check:checked ~ ul {
+        left: 0 ;
+    }
+    .logo{
+        height: 60px;
+        margin-left: 5px;
+        display: block;
+    }
+    #column2{
+        margin-top: 40px;
+        justify-content: center;
+    }
+    .personal-data{ 
+        margin-top: 70px;
+    }
+    
+}
+
+#column1{
+    background-color: rgb(240, 240, 240);
+    height: 100vh;
+    padding: 40px;
+    position: static;
+ }
+ 
+.logo-menu{
+    width: 300px;
+    align-items: center;
+ 
+}
+ 
+ /* Sidebar opciones */
+ 
+.btn{
+    width: 300px;
+    background: #6d9d6d;
+    color: white;
+    text-align:left;
+    margin-top: 20px;
+    padding-left: 30px;
+    height: 50px;
+    font-size: 22px;
+}
+ 
+.btn i {
+    margin-right: 8px; /* Ajusta la cantidad de espacio entre el icono y el texto */
+}
+ 
+#column2{
+    height: 100vh;
+    padding: 50px;
+} 
+
+.title-actas{
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 40px;
+}
+
+#column2{
+    height: 100vh;
+    padding: 50px;
+    justify-content: center;
+    display: flex;
+    margin-top: 5px;
+}
+
+.photo-instructor{
+  width: 250px;
+  height: 250px;
+  background-color: rgb(240, 240, 240);
+  border-radius: 50%; /* Esto crea un círculo */
+  font-size: 24px; /* Tamaño del icono */
+  color: black; /* Color del icono */
+}
+
+.personal-data{
+    width: 400px;
+    height: 120px;
+    background-color: rgb(240, 240, 240);
+    position: absolute;
+    top: 350px; /* Ajusta la distancia vertical según sea necesario */
+    text-align: center; /* Opcional: centrar el contenido horizontalmente */
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.list-group-item{
+   text-align: start;
+}
+
+.log-out{
+    margin-top: 60px;
+}
+
+.btn-logout{
+    background: #6d9d6d;
+    color: white;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.btn-profile{
+    background: #367037;
+}
+
+/* Estilos para ocultar la barra lateral en dispositivos pequeños */
+@media (max-width: 1187px) {
+    #column1 {
+         display: none !important; /* Oculta la barra lateral por defecto en pantallas pequeñas */
+         transform: translateX(-100%); /* Desplaza la barra completamente fuera de la vista */
+    }
+    .personal-data{
+        width: 300px;
+    }
+    #column2{
+        margin: 0 auto;
+        margin-top: 100px;
+    }
+    .btn-logout{
+        max-width: 200px;
+    }
+}

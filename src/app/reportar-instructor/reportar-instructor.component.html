@@ -1,0 +1,157 @@
+<div>
+    <header>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="bi bi-list"></i>
+            </label>
+            <a href="#" class="url">
+                <img src="../../assets/images/evaseg-logo21.png" class="logo">
+            </a>
+            <ul>
+                <li>
+                    <button type="button" class="btn btn" (click)="goTonextPage('/inicioInstructor')">
+                        <i class="bi bi-house"></i> Inicio
+                    </button>
+                </li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/llamadosInstructor')">
+                        <i class="bi bi-exclamation-circle"></i> Llamados de atención
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/reportarAprendiz')">
+                        <i class="bi bi-file-text"></i> Reportar aprendiz
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/historialInstructor')">
+                        <i class="bi bi-flag"></i> Consultar historial
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/bandejaInstructor')">
+                        <i class="bi bi-inbox"></i> Bandeja de entrada
+                    </button></li>
+                <li>
+                    <button type="submit" class="btn btn-profile" id="icono"
+                        (click)="goTonextPage('/perfilInstructor')">
+                        <i class="bi bi-person"></i> Perfil Instructor
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+        <div class="row">
+            <div id="column1">
+                <img src="../../assets/images/evaseg-logo21.png" class="logo-menu">
+                <br>
+                <button type="submit" class="btn btn" (click)="goTonextPage('inicioInstructor')">
+                    <i class="bi bi-house"></i> Inicio
+                </button>
+                <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/llamadosInstructor')">
+                    <i class="bi bi-exclamation-circle"></i> Llamado de antención
+                </button>
+                <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/reportarAprendiz')">
+                    <i class="bi bi-flag"></i> Reportar aprendiz
+                </button>
+                <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/historialInstructor')">
+                    <i class="bi bi-search"></i> Consultar historial
+                </button>
+                <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/bandejaInstructor')">
+                    <i class="bi bi-inbox"></i> Bandeja de entrada
+                </button>
+                <button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilInstructor')">
+                    <i class="bi bi-person"></i> Perfil Instructor
+                </button>
+
+            </div>
+        </div>
+        <div id="column2">
+            <div class="row">
+                <div class="col-sm-12" id="semicolumn">
+                    <h3>Reportar Aprendiz</h3>
+                    <form class="form">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label for="fichaAprendiz" class="form-label">Ficha</label>
+                                    <select class="form-select" id="fichaAprendiz" [(ngModel)]="fichaChoice"
+                                        name="ficha-seleccionada" (change)="apprenticeCard()">
+                                        <option selected>Ficha...</option>
+                                        <option *ngFor="let item of dataFichas" [ngValue]="item">{{item.idFichaFK}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label for="nameAprendiz" class="form-label">Nombre de aprendiz</label>
+                                    <select class="form-select" id="fichaAprendiz" [(ngModel)]="aprendizChoice"
+                                        name="aprendiz-seleccionado" (change)="updateFields()">
+                                        <option selected>Aprendiz..</option>
+                                        <option *ngFor="let item of listaInformacionAprendiz" [ngValue]="item">
+                                            {{item.first_name}} {{item.second_name}} {{item.last_name}}
+                                            {{item.second_last_name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label for="IdAprendiz" class="form-label">Número de documento</label>
+                                    <input type="text" class="form-control" id="IdAprendiz"
+                                        [(ngModel)]="numeroDocumentoAprendiz" name="numero-documento">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label for="programAprendiz" class="form-label">Programa de formación</label>
+                                    <input type="text" class="form-control" id="programAprendiz"
+                                        [(ngModel)]="programaFormacionAprendiz" name="programa-formacion">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label for="branchAprendiz" class="form-label">Coordinación</label>
+                                    <input type="text" class="form-control" id="branchAprendiz"
+                                        [(ngModel)]="coordinacionAprendiz" name="coordinacion-aprendiz">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="faltaAprendiz" class="form-label">Tipo de falta</label>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Tipo de falta...</option>
+                                    <option value="1">Leve</option>
+                                    <option value="2">Grave</option>
+                                    <option value="3">Gravisima</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label for="causesAprendiz" class="form-label">Causas del reporte</label>
+                                    <textarea class="form-control" id="causes"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label for="branchAprendiz" class="form-label">Faltas (Escriba el número de la fata
+                                        según el manual del aprendiz)</label>
+                                    <input type="text" class="form-control" id="branchAprendiz">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="branchAprendiz" class="form-label">Seleccionar Documentos</label>
+                                <div class="input-group">
+                                    <input type="file" class="form-control" id="inputGroupFile04"
+                                        aria-describedby="inputGroupFileAddon04" aria-label="Upload"
+                                        (change)="onFileSelected($event)">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="mb-3 text-center">
+                                    <button type="submit" class="btn btn-submit" (click)="validateFields()">Enviar</button>
+                                    <p id="message">{{message}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

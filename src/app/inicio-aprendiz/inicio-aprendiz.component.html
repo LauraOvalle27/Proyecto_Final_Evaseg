@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row" id="row-1">
+      <div class="col-md-1" id="column1"></div>
+      <div class="col-md-10" id="column2">
+        <img src="../../assets/images/evaseg-logo21.png" class="home-logo">
+        <div class="title-welcome">
+          <h1>Bienvenido Aprendiz {{nombrePersona}}</h1>
+        </div>
+      </div>
+      <div class="col-md-1" id="column1"></div>
+    </div>
+  
+    <div class="row" id="row-2">  
+      <div class="col" id="options">
+        <div class="card" (click)="goTonextPage('miHistorial')">
+          <div class="card-body">
+            <h2 class="card-title">Mi historial</h2>
+            <i class="bi bi-book"></i>
+          </div>
+        </div>
+      </div>    
+      <div class="col" id="options">
+        <div class="card" (click)="goTonextPage('citacionesAprendiz')">
+          <div class="card-body">
+            <h2 class="card-title">Citaciones</h2>
+            <i class="bi bi-calendar-event"></i>
+          </div>
+        </div>
+      </div>    
+      <div class="col" id="options">
+        <div class="card" (click)="goTonextPage('descargosAprendiz')">
+          <div class="card-body">
+            <h2 class="card-title">Descargos</h2>
+            <i class="bi bi-pencil"></i>
+          </div>
+        </div>
+      </div>    
+      <div class="col" id="options">
+        <div class="card" (click)="goTonextPage('bandejaAprendiz')" >
+          <div class="card-body">
+            <h2 class="card-title">Bandeja de entrada</h2>
+            <i class="bi bi-bell"></i>
+          </div>
+        </div>
+      </div> 
+      <div class="col">
+        <div class="card" (click)="goTonextPage('perfilAprendiz')">
+          <div class="card-body">
+            <h2 class="card-title">Perfil</h2>
+            <i class="bi bi-person-circle"></i>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
+
