@@ -1,8 +1,5 @@
 /* Estilos consultar historial intructor */
 
-
-
-
 /* Estilos nav responsive */
 
 nav{
@@ -147,7 +144,6 @@ nav ul li a {
 
 #process{
     background-color:  rgb(240, 240, 240);
-    margin: 10px;
     width: 800px;
 }
  
@@ -157,7 +153,7 @@ nav ul li a {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
- }
+}
    
  /* Estilos para cada fila */
  

@@ -27,7 +27,8 @@
                             <i class="bi bi-inbox"></i> Bandeja de entrada
                         </button></li>
                     <li>
-                        <button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilAprendiz')">
+                        <button type="submit" class="btn btn-profile" id="icono"
+                            (click)="goTonextPage('/perfilAprendiz')">
                             <i class="bi bi-person"></i> Perfil Aprendiz
                         </button>
                     </li>
@@ -35,7 +36,7 @@
             </nav>
         </header>
         <div class="row">
-            <div class="col-sm-3" id="column1">
+            <div id="column1">
                 <img src="../../assets/images/evaseg-logo21.png" class="logo-menu">
                 <br>
                 <button type="submit" class="btn btn" (click)="goTonextPage('inicioAprendiz')">
@@ -57,23 +58,23 @@
                     <i class="bi bi-person"></i> Perfil Aprendiz
                 </button>
             </div>
-            <div class="col-md-9 col-sm-12" id="column2">
-                <div class="row">
-                    <div class="col-sm-12" id="semicolumn">
-                        <h3>Proxima citación</h3>
-                        <div class="row">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5 class="card-title">Detalles</h5>
-                                </div>
-                                <div class="card-body">
-                                    <p class="card-text">Fecha:</p>
-                                    <p></p>
-                                    <p class="card-text">Hora:</p>
-                                    <p></p>
-                                    <p> lugar: </p>
-                                    <p> Motivo: </p>
-                                </div>
+        </div>
+        <div id="column2">
+            <div class="row">
+                <div class="col-sm-12" id="semicolumn">
+                    <h3>Proxima citación</h3>
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Detalles</h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Fecha:</p>
+                                <p></p>
+                                <p class="card-text">Hora:</p>
+                                <p></p>
+                                <p> lugar: </p>
+                                <p> Motivo: </p>
                             </div>
                         </div>
                     </div>
@@ -81,3 +82,4 @@
             </div>
         </div>
     </div>
+</div>

@@ -108,22 +108,20 @@
             </div>
         </div>
         <div id="column2" *ngIf="!structure">
-            
-                <div class="col-sm-6" *ngFor="let item of historialProcesos">
-                    <div class="card" id="process">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                {{ item.tipoProcesoFK === 1 ? 'Llamado de atención' :
-                                item.tipoProcesoFK === 2 ? 'Felicitación' :
-                                'Reporte a comité de evaluación y seguimiento'}}
-                            </h5>
-                            <h6 class="card-subtitle mb-2 text-body-secondary">id proceso: {{item.id}}</h6>
-                            <p class="card-text">{{item.causasProceso}}</p>
-                            <a>Fecha Creación: {{item.fechaCreacionProceso}}</a>
-                        </div>
+            <div class="col-sm-6" *ngFor="let item of historialProcesos">
+                <div class="card" id="process">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{ item.tipoProcesoFK === 1 ? 'Llamado de atención' :
+                            item.tipoProcesoFK === 2 ? 'Felicitación' :
+                            'Reporte a comité de evaluación y seguimiento'}}
+                        </h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">id proceso: {{item.id}}</h6>
+                        <p class="card-text">{{item.causasProceso}}</p>
+                        <a>Fecha Creación: {{item.fechaCreacionProceso}}</a>
                     </div>
                 </div>
-            
+            </div>
         </div>
     </div>
 </div>
