@@ -31,4 +31,5 @@ export class PerfilAprendizComponent implements OnInit{
     this.route.navigate([url]);
   }
 
+
 }

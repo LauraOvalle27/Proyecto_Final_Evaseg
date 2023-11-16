@@ -33,7 +33,7 @@
     </header>
     <div>
         <div class="row">
-            <div class="col-sm-3" id="column1">
+            <div id="column1">
                 <img src="../../assets/images/evaseg-logo21.png" class="logo-menu">
                 <br>
                 <button type="submit" class="btn btn" (click)="goTonextPage('inicioAprendiz')">
@@ -54,30 +54,29 @@
                 <button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilAprendiz')">
                     <i class="bi bi-person"></i> Perfil Aprendiz
                 </button>
-
             </div>
-            <div class="col-md-9 col-sm-12" id="column2">
-                <div class="row">
-                    <div class="col-sm-12" id="semicolumn">
-                        <h3>Descargos</h3>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="container">
-                                    <div class="nameAprendiz">
-                                        Detalles comité
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="causesAprendiz" class="form-label">Escribir descargos</label>
-                                    <textarea class="form-control" id="causes"></textarea>
+        </div>
+        <div id="column2">
+            <div class="row">
+                <div class="col-sm-12" id="semicolumn">
+                    <h3>Descargos</h3>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="container">
+                                <div class="nameAprendiz">
+                                    Detalles comité
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <i class="bi bi-paperclip"></i> Adjuntar un Vínculo
-                                <i class="bi bi-file-earmark"></i> Adjuntar documentos
-                                <div class="mb-3 text-center">
-                                    <button type="submit" class="btn btn-submit">Enviar</button>
-                                </div>
+                            <div class="mb-3">
+                                <label for="causesAprendiz" class="form-label">Escribir descargos</label>
+                                <textarea class="form-control" id="causes"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <i class="bi bi-paperclip"></i> Adjuntar un Vínculo
+                            <i class="bi bi-file-earmark"></i> Adjuntar documentos
+                            <div class="mb-3 text-center">
+                                <button type="submit" class="btn btn-submit">Enviar</button>
                             </div>
                         </div>
                     </div>

@@ -28,13 +28,13 @@
                 <li>
                     <button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilAprendiz')">
                         <i class="bi bi-person"></i> Perfil Aprendiz
-                    </button> 
+                    </button>
                 </li>
             </ul>
         </nav>
     </header>
     <div class="row">
-        <div class="col-sm-3" id="column1">
+        <div id="column1">
             <img src="../../assets/images/evaseg-logo21.png" class="logo-menu">
             <br>
             <button type="submit" class="btn btn" (click)="goTonextPage('inicioAprendiz')">
@@ -55,46 +55,45 @@
             <button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilAprendiz')">
                 <i class="bi bi-person"></i> Perfil Aprendiz
             </button>
-
         </div>
-        <div class="col-md-9 col-sm-12" id="column2" *ngIf="structure">
-            <div class="row">
-                <div class="col-sm-12" id="semicolumn">
-                    <h3>Consultar Historial</h3>
-                    <form class="form">
-                        <div class="row">
-                            <div class="mb-3">
-                                <select class="form-select" id="fichaAprendiz" [(ngModel)]="relacionFichaAprendiz"
-                                    name="ficha-seleccionada">
-                                    <option selected>Tipo de proceso...</option>
-                                    <option *ngFor="let item of historialProcesos" [ngValue]="item">
-                                        {{item.tipoProcesoFK}}</option>
-                                </select>
-                            </div>
-                            <div class="col-mb-3">
-                                <div class="mb-3 text-center">
-                                    <button type="submit" class="btn btn-submit"
-                                        (click)="consultarHistorial()">Consultar</button>
-                                </div>
+    </div>
+    <div id="column2" *ngIf="structure">
+        <div class="row">
+            <div class="col-sm-12" id="semicolumn">
+                <h3>Consultar Historial</h3>
+                <form class="form">
+                    <div class="row">
+                        <div class="mb-3">
+                            <select class="form-select" id="fichaAprendiz" [(ngModel)]="relacionFichaAprendiz"
+                                name="ficha-seleccionada">
+                                <option selected>Tipo de proceso...</option>
+                                <option *ngFor="let item of historialProcesos" [ngValue]="item">
+                                    {{item.tipoProcesoFK}}</option>
+                            </select>
+                        </div>
+                        <div class="col-mb-3">
+                            <div class="mb-3 text-center">
+                                <button type="submit" class="btn btn-submit"
+                                    (click)="consultarHistorial()">Consultar</button>
                             </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="col-md-9 col-sm-12" id="column2" *ngIf="!structure">
-            <div class="col-sm-6" *ngFor="let item of historialProcesos">
-                <div class="card" id="process">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            {{ item.tipoProcesoFK === 1 ? 'Llamado de atención' :
-                            item.tipoProcesoFK === 2 ? 'Felicitación' :
-                            'Reporte a comité de evaluación y seguimiento'}}
-                        </h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">id proceso: {{item.id}}</h6>
-                        <p class="card-text">{{item.causasProceso}}</p>
-                        <a>Fecha Creación: {{item.fechaCreacionProceso}}</a>
-                    </div>
+    </div>
+    <div id="column2" *ngIf="!structure">
+        <div class="col-sm-6" *ngFor="let item of historialProcesos">
+            <div class="card" id="process">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{ item.tipoProcesoFK === 1 ? 'Llamado de atención' :
+                        item.tipoProcesoFK === 2 ? 'Felicitación' :
+                        'Reporte a comité de evaluación y seguimiento'}}
+                    </h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">id proceso: {{item.id}}</h6>
+                    <p class="card-text">{{item.causasProceso}}</p>
+                    <a>Fecha Creación: {{item.fechaCreacionProceso}}</a>
                 </div>
             </div>
         </div>

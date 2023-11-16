@@ -92,10 +92,12 @@ nav ul li a {
 /* Side bar */
 
 #column1{
+    width: 350px;
+    min-width: 300px; /* Asegura un ancho mínimo */
     background-color: rgb(240, 240, 240);
+    padding: 30px;
+    position: fixed;
     height: 100vh;
-    padding: 40px;
-    position: static;
 }
  
 .logo-menu{
@@ -138,8 +140,9 @@ nav ul li a {
 }
  
 #column2{
-    height: 100vh;
-    padding: 50px;
+    padding: 40px;
+    margin-left: 450px;
+    max-width: 1000px;
 }
  
 .title-call{

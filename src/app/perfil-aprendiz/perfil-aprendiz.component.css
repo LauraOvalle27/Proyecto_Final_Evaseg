@@ -95,10 +95,12 @@ nav ul li a {
 /* Side bar */
 
 #column1{
+    width: 350px;
+    min-width: 300px; /* Asegura un ancho mínimo */
     background-color: rgb(240, 240, 240);
+    padding: 30px;
+    position: fixed;
     height: 100vh;
-    padding: 40px;
-    position: static;
 }
  
 .logo-menu{
@@ -124,24 +126,13 @@ nav ul li a {
 }
  
 
-.profile {
-    display: flex;
-    align-items: flex-end;
-    height: 200px; /* Ajusta la altura del contenedor según tus necesidades */ 
-    font-size: 30px;
-    padding-bottom: 50px;
-}
-
-.role{
-    margin-left: 10px; /* Espacio entre el icono y el texto (ajusta según tus necesidades) */
-}
-
 #column2{
     height: 100vh;
     padding: 50px;
     justify-content: center;
     display: flex;
     margin-top: 5px;
+    margin-left: 400px;
 }
 
 .photo-instructor{
@@ -182,6 +173,13 @@ nav ul li a {
 .btn-profile{
     background: #367037;
 }
+
+@media (min-width: 1600px) {
+    #column2 {
+        margin-left: 30%;
+    }
+}
+
 
 /* Estilos para ocultar la barra lateral en dispositivos pequeños */
 @media (max-width: 1187px) {
