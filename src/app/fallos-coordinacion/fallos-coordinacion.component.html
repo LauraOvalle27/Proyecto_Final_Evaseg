@@ -36,7 +36,7 @@
 <div>
 <div>
     <div class="row">
-        <div class="col-sm-3" id="column1" >
+        <div id="column1" >
             <img src="../../assets/images/evaseg-logo21.png" class="logo-menu">
             <br>
             <button type="submit" class="btn btn" (click)="goTonextPage('inicioCoordinacion')">
@@ -57,22 +57,60 @@
             <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaCoordinacion')">
                 <i class="bi bi-inbox"></i> Bandeja de entrada
             </button>
-            <button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilCoordinacion')">
+            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/perfilCoordinacion')">
                 <i class="bi bi-person"></i> Perfil Coordianción
             </button>
-            
         </div>
-        <div class="col-md-9 col-sm-12" id="column2">
+        </div>
+        <div id="column2">
             <div class="row">
                 <div class="col-sm-12" id="semicolumn">
                     <h3>Fallos</h3>
                     <form class="form">
                         <div class="row">
                             <div class="col-12">
-                                <div class="container">
-                                <div class="nameAprendiz">
-                                    Nombre aprendiz
+                                <div class="mb-3">
+                                    <label for="fichaAprendiz" class="form-label">Ficha</label>
+                                    <select class="form-select" id="fichaAprendiz" [(ngModel)]="fichaChoice"
+                                        name="ficha-seleccionada" (change)="apprenticeCard()">
+                                        <option selected>Ficha...</option>
+                                        <option *ngFor="let item of dataFichas" [ngValue]="item">{{item.idFichaFK}}
+                                        </option>
+                                    </select>
                                 </div>
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label for="nameAprendiz" class="form-label">Nombre de aprendiz</label>
+                                        <select class="form-select" id="fichaAprendiz" [(ngModel)]="aprendizChoice"
+                                            name="aprendiz-seleccionado">
+                                            <option selected>Aprendiz..</option>
+                                            <option *ngFor="let item of listaInformacionAprendiz" [ngValue]="item">
+                                                {{item.first_name}} {{item.second_name}} {{item.last_name}}
+                                                {{item.second_last_name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label for="IdAprendiz" class="form-label">Número de documento</label>
+                                        <input type="text" class="form-control" id="IdAprendiz"
+                                            [(ngModel)]="numeroDocumentoAprendiz" name="numero-documento">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label for="programAprendiz" class="form-label">Programa de formación</label>
+                                        <input type="text" class="form-control" id="programAprendiz"
+                                            [(ngModel)]="programaFormacionAprendiz" name="programa-formacion">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label for="branchAprendiz" class="form-label">Coordinación</label>
+                                        <input type="text" class="form-control" id="branchAprendiz"
+                                            [(ngModel)]="coordinacionAprendiz" name="coordinacion-aprendiz">
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="causesAprendiz" class="form-label">Escribir fallos</label>

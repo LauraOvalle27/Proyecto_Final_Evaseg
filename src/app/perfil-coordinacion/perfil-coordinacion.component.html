@@ -1,49 +1,50 @@
 <div>
     <header>
         <nav>
-          <input type="checkbox" id="check">
-          <label for="check" class="checkbtn">
-            <i class="bi bi-list"></i>
-          </label>
-          <a href="#" class="url">
-            <img src="../../assets/images/evaseg-logo21.png" class="logo">
-          </a>
-          <ul>
-            <li><button type="submit" class="btn btn" (click)="goTonextPage('inicioCoordinacion')" >
-                <i class="bi bi-house"></i> Inicio
-            </button></li>
-            <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('llamadosCoordinacion')" >
-                <i class="bi bi-exclamation-circle"></i> Llamados
-            </button></li>
-            <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('felicitacionCoordinacion')" >
-                <i class="bi bi-bookmark-check"></i> Felicitación
-            </button></li>
-            <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('fallosCoordinacion')">
-                <i class="bi bi-file-text"></i> Fallos
-            </button></li>
-            <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('actasCoordinacion')">
-                <i class="bi bi-files"></i> Actas
-            </button></li>
-            <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaCoordinacion')" >
-                <i class="bi bi-inbox"></i> Bandeja de entrada
-            </button></li>
-            <li><button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilCoordinacion')">
-                <i class="bi bi-person"></i> Perfil Coordianción
-            </button></li>
-          </ul>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="bi bi-list"></i>
+            </label>
+            <a href="#" class="url">
+                <img src="../../assets/images/evaseg-logo21.png" class="logo">
+            </a>
+            <ul>
+                <li><button type="submit" class="btn btn" (click)="goTonextPage('inicioCoordinacion')">
+                        <i class="bi bi-house"></i> Inicio
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('llamadosCoordinacion')">
+                        <i class="bi bi-exclamation-circle"></i> Llamados
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('felicitacionCoordinacion')">
+                        <i class="bi bi-bookmark-check"></i> Felicitación
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('fallosCoordinacion')">
+                        <i class="bi bi-file-text"></i> Fallos
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('actasCoordinacion')">
+                        <i class="bi bi-files"></i> Actas
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaCoordinacion')">
+                        <i class="bi bi-inbox"></i> Bandeja de entrada
+                    </button></li>
+                <li><button type="submit" class="btn btn-profile" id="icono"
+                        (click)="goTonextPage('/perfilCoordinacion')">
+                        <i class="bi bi-person"></i> Perfil Coordianción
+                    </button></li>
+            </ul>
         </nav>
-      </header>
+    </header>
     <div class="row">
-        <div class="col-sm-3" id="column1" >
+        <div class="col-sm-3" id="column1">
             <img src="../../assets/images/evaseg-logo21.png" class="logo-menu">
             <br>
-            <button type="submit" class="btn btn" (click)="goTonextPage('inicioCoordinacion')" >
+            <button type="submit" class="btn btn" (click)="goTonextPage('inicioCoordinacion')">
                 <i class="bi bi-house"></i> Inicio
             </button>
-            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('llamadosCoordinacion')" >
+            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('llamadosCoordinacion')">
                 <i class="bi bi-exclamation-circle"></i> Llamados
             </button>
-            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('felicitacionCoordinacion')" >
+            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('felicitacionCoordinacion')">
                 <i class="bi bi-bookmark-check"></i> Felicitación
             </button>
             <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('fallosCoordinacion')">
@@ -52,27 +53,25 @@
             <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('actasCoordinacion')">
                 <i class="bi bi-files"></i> Actas
             </button>
-            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaCoordinacion')" >
+            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaCoordinacion')">
                 <i class="bi bi-inbox"></i> Bandeja de entrada
             </button>
-            <button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilCoordinacion')">
+            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/perfilCoordinacion')">
                 <i class="bi bi-person"></i> Perfil Coordianción
             </button>
 
         </div>
-        <div class="col-sm-9" id="column2">
-            <div class="photo-instructor">
+    </div>
+    <div id="column2">
+        <div class="photo-instructor">
+        </div>
+        <div class="personal-data">
+            <li class="list-group-item">Nombre</li>{{nombrePersona}}
+            <li class="list-group-item">Correo Electronico</li>{{emailPersona}}
+            <div class="log-out">
+                <button type="submit" class="btn btn-logout" (click)="goTonextPage('/login')">Cerrar Sesión</button>
             </div>
-            <div class="personal-data">
-                <li class="list-group-item">Nombre {{nombrePersona}}</li>
-                <li class="list-group-item">Correo Electronico {{emailPersona}}</li>
-                <div class="log-out">
-                    <button type="submit" class="btn btn-logout">Cerrar Sesión</button>
-                </div>
         </div>
-           
-        </div>
-   
-</div>
+    </div>
 
-            
+</div>

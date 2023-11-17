@@ -45,7 +45,7 @@
             <button type="submit" class="btn btn" (click)="goTonextPage('inicioInstructor')">
                 <i class="bi bi-house"></i> Inicio
             </button>
-            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/llamadosInstructor')">
+            <button type="submit" class="btn btn" id="icono"  (click)="goTonextPage('/llamadosInstructor')">
                 <i class="bi bi-exclamation-circle"></i> Llamado de antención
             </button>
             <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/reportarAprendiz')">
@@ -57,7 +57,7 @@
             <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/bandejaInstructor')">
                 <i class="bi bi-inbox"></i> Bandeja de entrada
             </button>
-            <button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilInstructor')">
+            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/perfilInstructor')">
                 <i class="bi bi-person"></i> Perfil Instructor
             </button>
         </div>
@@ -93,16 +93,16 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="mb-3">
-                                <label for="programAprendiz" class="form-label">Programa de formación</label>
-                                <input type="text" class="form-control" id="programAprendiz"
-                                    [(ngModel)]="programaFormacionAprendiz" name="programa-formacion">
+                                <label for="IdAprendiz" class="form-label">Número de documento</label>
+                                <input type="text" class="form-control" id="IdAprendiz"
+                                    [(ngModel)]="numeroDocumentoAprendiz" name="numero-documento">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="mb-3">
-                                <label for="branchAprendiz" class="form-label">Coordinación</label>
-                                <input type="text" class="form-control" id="branchAprendiz"
-                                    [(ngModel)]="coordinacionAprendiz" name="coordinacion-aprendiz">
+                                <label for="programAprendiz" class="form-label">Programa de formación</label>
+                                <input type="text" class="form-control" id="programAprendiz"
+                                    [(ngModel)]="programaFormacionAprendiz" name="programa-formacion">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -114,13 +114,24 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="mb-3">
-                                <label for="branchAprendiz" class="form-label" (click)="onFileSelected($event)">Faltas (Escriba el número de la fata
-                                    según el manual del aprendiz)</label>
+                                <label for="branchAprendiz" class="form-label">Faltas (Escriba el número de la falta
+                                    según el manual del aprendiz)
+                                    <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25" (click)="openPDF()">
+                                        Manual del aprendiz
+                                    </a>
+                                </label>
                                 <input type="text" class="form-control" id="branchAprendiz"
                                     name="coordinacion-aprendiz">
                             </div>
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="branchAprendiz" class="form-label">Coordinación</label>
+                                <input type="text" class="form-control" id="branchAprendiz"
+                                    [(ngModel)]="coordinacionAprendiz" name="coordinacion-aprendiz">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
                             <label for="branchAprendiz" class="form-label">Seleccionar Documentos</label>
                             <div class="input-group">
                                 <input type="file" enctype="multipart/form-data" class="form-control"

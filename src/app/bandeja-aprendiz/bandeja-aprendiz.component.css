@@ -121,24 +121,7 @@ nav ul li a {
 .btn i {
     margin-right: 8px; /* Ajusta la cantidad de espacio entre el icono y el texto */
 }
- 
 
-.btn-profile{
-    background: #367037;
-}
-
-@media (max-width: 1187px) {
-    #column1 {
-        display: none !important; /* Oculta la barra lateral por defecto en pantallas pequeñas */
-        transform: translateX(-100%); /* Desplaza la barra completamente fuera de la vista */
-    }
-    #column2{
-        margin: 0 auto;
-        margin-top: 100px;
-    }
-
-}
- 
 #column2{
     padding: 40px;
     margin-left: 450px;
@@ -156,3 +139,17 @@ nav ul li a {
     padding: 60px;
     border-radius: 20px;
 }
+ 
+
+@media (max-width: 1187px) {
+    #column1 {
+        display: none !important; /* Oculta la barra lateral por defecto en pantallas pequeñas */
+        transform: translateX(-100%); /* Desplaza la barra completamente fuera de la vista */
+    }
+    #column2{
+        margin: 0 auto;
+        margin-top: 100px;
+    }
+
+}
+ 

@@ -121,6 +121,7 @@ nav ul li a {
     font-size: 22px;
 }
 
+
 .btn i {
     margin-right: 8px; /* Ajusta la cantidad de espacio entre el icono y el texto */
 }
@@ -169,10 +170,6 @@ nav ul li a {
     text-align: center;
 }
 
-.btn-profile{
-    background: #367037;
-}
-
 #message{
     color: red;
     padding: 10px;
@@ -183,6 +180,10 @@ nav ul li a {
     #column2 {
         margin-left: 30%;
     }
+}
+
+.clickeado {
+    color: #00f;
 }
    
 

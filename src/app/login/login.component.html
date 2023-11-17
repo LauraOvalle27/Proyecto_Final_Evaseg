@@ -1,18 +1,20 @@
 <div id="background-evaseg">
-    <div class="row">          
-      <div class="col-sm-12" id="column">
-          <form >
+    <div class="row">
+        <div id="column">
+            <form>
                 <img src="../../assets/images/evaseg-logo1.png" class="logo-login">
                 <br>
                 <h1 class="login-title">Inciar Sesión</h1>
                 <br>
-                <div class="mb-3" >
+                <div class="mb-3">
                     <label for="exampleInputId" class="form-label"> Número de documento</label>
-                    <input type="text" class="form-control" id="exampleInputId" aria-describedby="IdHelp" [(ngModel)]="docNumber" name="docNumber">               
+                    <input type="text" class="form-control" id="exampleInputId" aria-describedby="IdHelp"
+                        [(ngModel)]="docNumber" name="docNumber">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password" name="password">  
+                    <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password"
+                        name="password">
                 </div>
                 <button type="submit" class="btn btn-login" (click)="validateUser()">Ingresar</button>
                 <br>
@@ -21,7 +23,7 @@
                         ¿Olvidaste tu contraseña?
                     </button>
                 </div>
-          </form>
-        </div>  
-    </div>     
-  </div>
+            </form>
+        </div>
+    </div>
+</div>

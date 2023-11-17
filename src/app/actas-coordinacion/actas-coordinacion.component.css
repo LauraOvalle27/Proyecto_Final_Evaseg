@@ -90,11 +90,14 @@ nav ul li a {
 }
 
 #column1{
+    width: 350px;
+    min-width: 300px; /* Asegura un ancho mínimo */
     background-color: rgb(240, 240, 240);
+    padding: 30px;
+    position: fixed;
     height: 100vh;
-    padding: 40px;
-    position: static;
 }
+
  
 .logo-menu{
     width: 300px;
@@ -119,11 +122,12 @@ nav ul li a {
     margin-right: 8px; /* Ajusta la cantidad de espacio entre el icono y el texto */
 }
  
-#column2{
-    height: 100vh;
-    padding: 50px;
-} 
 
+#column2{
+    padding: 40px;
+    margin-left: 450px;
+    max-width: 1000px;
+}
 
 
 #semicolumn{
@@ -162,9 +166,13 @@ nav ul li a {
     text-align: center;
 }
 
-.btn-profile{
-    background: #367037;
+
+@media (min-width: 1600px) {
+    #column2 {
+        margin-left: 30%;
+    }
 }
+
 @media (max-width: 1187px) {
     #column1 {
         display: none !important; /* Oculta la barra lateral por defecto en pantallas pequeñas */

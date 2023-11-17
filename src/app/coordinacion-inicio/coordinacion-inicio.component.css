@@ -50,7 +50,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Crea tres columnas de igual ancho */
     gap: 10px; /* Espacio entre las columnas */
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 @media (max-width: 1030px) {

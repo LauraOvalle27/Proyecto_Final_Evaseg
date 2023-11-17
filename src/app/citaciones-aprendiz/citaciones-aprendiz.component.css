@@ -148,10 +148,6 @@ nav ul li a {
     justify-content: center;
 }
    
-.btn-profile{
-    background: #367037;
-}
- 
 
 @media (min-width: 1600px) {
     #column2 {

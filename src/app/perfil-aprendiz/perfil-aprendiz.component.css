@@ -146,7 +146,6 @@ nav ul li a {
 
 .personal-data{
     width: 400px;
-    height: 120px;
     background-color: rgb(240, 240, 240);
     position: absolute;
     top: 350px; /* Ajusta la distancia vertical según sea necesario */
@@ -156,7 +155,8 @@ nav ul li a {
 }
 
 .list-group-item{
-   text-align: start;
+    text-align: center;
+    font-size: 18px;
 }
 
 .log-out{
@@ -170,9 +170,6 @@ nav ul li a {
     text-align: center;
 }
 
-.btn-profile{
-    background: #367037;
-}
 
 @media (min-width: 1600px) {
     #column2 {

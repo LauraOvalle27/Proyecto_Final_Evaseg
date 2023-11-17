@@ -233,7 +233,7 @@ export class LlamadoAtencionInstructorComponent implements OnInit {
         console.log('Respuesta:', response);
         Swal.fire({
           title: "¡Muy bien!",
-          text: "Los decargos han sido enviados correctamente!",
+          text: "El llamado de atención ha sido enviado correctamente!",
           icon: "success",
           confirmButtonText: "OK",
           confirmButtonColor: "#63a154",
@@ -258,6 +258,15 @@ export class LlamadoAtencionInstructorComponent implements OnInit {
     const day = fecha.getDate().toString().padStart(2, '0'); // Asegura que el día tenga 2 dígitos  
     return `${year}-${month}-${day}`;
   }
+
+  //Función para abrir manual del aprendiz en página especifica
+  openPDF(): void {
+    
+    const pdfURL = 'https://www.poli.edu.co/sites/default/files/reglamento-aprendiz-2012-sena.pdf';
+    const numeroDePagina = 13; 
+    window.open(`${pdfURL}#page=${numeroDePagina}`, '_blank');
+  }
+
 }
 
 

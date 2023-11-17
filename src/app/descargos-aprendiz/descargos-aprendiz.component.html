@@ -51,7 +51,7 @@
                 <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaAprendiz')">
                     <i class="bi bi-bell"></i> Bandeja de entrada
                 </button>
-                <button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilAprendiz')">
+                <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/perfilAprendiz')">
                     <i class="bi bi-person"></i> Perfil Aprendiz
                 </button>
             </div>
@@ -72,12 +72,15 @@
                                 <textarea class="form-control" id="causes"></textarea>
                             </div>
                         </div>
-                        <div class="col-12">
-                            <i class="bi bi-paperclip"></i> Adjuntar un Vínculo
-                            <i class="bi bi-file-earmark"></i> Adjuntar documentos
-                            <div class="mb-3 text-center">
-                                <button type="submit" class="btn btn-submit">Enviar</button>
+                        <div class="col-sm-12">
+                            <label for="branchAprendiz" class="form-label">Seleccionar Documentos</label>
+                            <div class="input-group">
+                                <input type="file" enctype="multipart/form-data" class="form-control"
+                                    id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                             </div>
+                        </div>
+                        <div class="mb-3 text-center">
+                            <button type="submit" class="btn btn-submit">Enviar</button>
                         </div>
                     </div>
                 </div>

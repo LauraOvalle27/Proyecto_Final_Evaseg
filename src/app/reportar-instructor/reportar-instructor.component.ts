@@ -80,7 +80,6 @@ export class ReportarInstructorComponent implements OnInit{
     this.numeroDocumentoAprendiz = '';
     this.programaFormacionAprendiz = '';
     this.coordinacionAprendiz = '';
-    console.log(this.fichaChoice)
 
     // primero se la lista de ID's de usuarios que son aprendices de la ficha elegida
     this.http.get(`http://127.0.0.1:8000/evaseg_app/consulta-aprendiz-ficha/?idFichaFK=${this.fichaChoice.idFichaFK}`).subscribe(
@@ -144,12 +143,21 @@ export class ReportarInstructorComponent implements OnInit{
         this.coordinacionAprendiz == null ||
         this.causasProceso == '' ||
         this.causasProceso == null ||
-        this.calificacionFalta == 'Calificación de la falta...' ||
+        this.calificacionFalta == 'Tipo de falta...' ||
         this.calificacionFalta == '' ||
+        this.faltasManual == '' ||
+        this.faltasManual == null ||
         this.formDataEnvio == null  ||
         this.formDataEnvio == undefined
     ){
       this.message = '¡Todos los campos son obligarios!'
+      console.log(this.fichaChoice)
+      console.log(this.aprendizChoice, this.numeroDocumentoAprendiz, this.programaFormacionAprendiz, this.coordinacionAprendiz)
+      console.log(this.causasProceso)      
+      console.log('calif', this.calificacionFalta)
+      console.log(this.faltasManual)
+      console.log(this.formDataEnvio)
+      
     }
     else{
       this.message = '';
@@ -194,7 +202,7 @@ export class ReportarInstructorComponent implements OnInit{
         // Manejo de la respuesta exitosa:
         Swal.fire({
           title: "¡Muy bien!",
-          text: "Los datos han sido enviados correctamente!",
+          text: "El reporte se ha realizado correctamente!",
           icon: "success",
           confirmButtonText: "OK",
           confirmButtonColor: "#63a154",
@@ -218,5 +226,13 @@ export class ReportarInstructorComponent implements OnInit{
     const month = (fecha.getMonth() + 1).toString().padStart(2, '0'); // Asegura que el mes tenga 2 dígitos
     const day = fecha.getDate().toString().padStart(2, '0'); // Asegura que el día tenga 2 dígitos  
     return `${year}-${month}-${day}`;
+  }
+
+  //Función para abrir manual del aprendiz en página especifica
+  openPDF(): void {
+    
+    const pdfURL = 'https://www.poli.edu.co/sites/default/files/reglamento-aprendiz-2012-sena.pdf';
+    const numeroDePagina = 13; 
+    window.open(`${pdfURL}#page=${numeroDePagina}`, '_blank');
   }
 }

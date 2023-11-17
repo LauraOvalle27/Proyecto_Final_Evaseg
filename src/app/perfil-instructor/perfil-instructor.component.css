@@ -93,11 +93,14 @@ nav ul li a {
 }
 
 #column1{
+    width: 350px;
+    min-width: 300px; /* Asegura un ancho mínimo */
     background-color: rgb(240, 240, 240);
+    padding: 30px;
+    position: fixed;
     height: 100vh;
-    padding: 40px;
-    position: static;
- }
+}
+ 
  
 .logo-menu{
     width: 300px;
@@ -130,8 +133,9 @@ nav ul li a {
     justify-content: center;
     display: flex;
     margin-top: 5px;
-   
+    margin-left: 400px;
 }
+
 
 .photo-instructor{
   width: 250px;
@@ -144,7 +148,6 @@ nav ul li a {
 
 .personal-data{
     width: 400px;
-    height: 120px;
     background-color: rgb(240, 240, 240);
     position: absolute;
     top: 350px; /* Ajusta la distancia vertical según sea necesario */
@@ -154,7 +157,8 @@ nav ul li a {
 }
 
 .list-group-item{
-   text-align: start;
+   text-align: center;
+   font-size: 18px;
 }
 
 .log-out{
@@ -168,9 +172,6 @@ nav ul li a {
     text-align: center;
 }
 
-.btn-profile{
-    background: #367037;
-}
 
 /* Estilos para ocultar la barra lateral en dispositivos pequeños */
 @media (max-width: 1187px) {

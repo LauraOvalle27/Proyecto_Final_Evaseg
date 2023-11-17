@@ -172,16 +172,12 @@ nav ul li a {
     text-align: center;
 }
 
-.btn-profile{
-    background: #367037;
-}
- 
 #message{
     color: red;
 }
 
 .card{
-    width: 600px;
+    margin-bottom: 10px;
 }
 
 
@@ -201,6 +197,9 @@ nav ul li a {
         margin: 0 auto;
         margin-top: 100px;
     }
+    .card{
+        width: auto;
+    }
 }
 @media (max-width: 500px) {
     .btn-submit{
@@ -208,6 +207,10 @@ nav ul li a {
     }
     .profile{
         height: 120px; /* Ajusta la altura del contenedor según tus necesidades */
+    }
+    .card{
+        max-width: 80%;
+        margin: 0 auto;
     }
 }
 

@@ -55,7 +55,7 @@
                 <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/bandejaInstructor')">
                     <i class="bi bi-inbox"></i> Bandeja de entrada
                 </button>
-                <button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilInstructor')">
+                <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/perfilInstructor')">
                     <i class="bi bi-person"></i> Perfil Instructor
                 </button>
 
@@ -114,24 +114,27 @@
                             </div>
                             <div class="col-sm-6">
                                 <label for="faltaAprendiz" class="form-label">Tipo de falta</label>
-                                <select class="form-select" aria-label="Default select example">
+                                <select class="form-select" aria-label="Default select example" [(ngModel)]="calificacionFalta" name="calificacion-falta">
                                     <option selected>Tipo de falta...</option>
-                                    <option value="1">Leve</option>
-                                    <option value="2">Grave</option>
-                                    <option value="3">Gravisima</option>
+                                    <option value="Leve">Leve</option>
+                                    <option value="Grave">Grave</option>
+                                    <option value="Gravísima">Gravísima</option>
                                 </select>
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="causesAprendiz" class="form-label">Causas del reporte</label>
-                                    <textarea class="form-control" id="causes"></textarea>
+                                    <textarea class="form-control" id="causes"  [(ngModel)]="causasProceso" name="cuasas-proceso"></textarea>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="branchAprendiz" class="form-label">Faltas (Escriba el número de la fata
-                                        según el manual del aprendiz)</label>
-                                    <input type="text" class="form-control" id="branchAprendiz">
+                                        según el manual del aprendiz)
+                                        <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25" (click)="openPDF()">
+                                            Manual del aprendiz
+                                        </a></label>
+                                    <input type="text" class="form-control" id="branchAprendiz" [(ngModel)]="faltasManual" name="faltas-manual">
                                 </div>
                             </div>
                             <div class="col-sm-12">

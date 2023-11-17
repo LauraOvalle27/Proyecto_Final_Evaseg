@@ -27,16 +27,17 @@
                         <i class="bi bi-inbox"></i> Bandeja de entrada
                     </button></li>
                 <li>
-                    <button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilInstructor')">
+                    <button type="submit" class="btn btn-profile" id="icono"
+                        (click)="goTonextPage('/perfilInstructor')">
                         <i class="bi bi-person"></i> Perfil Instructor
-                    </button> 
+                    </button>
                 </li>
             </ul>
         </nav>
     </header>
     <div>
         <div class="row">
-            <div class="col-sm-3" id="column1">
+            <div id="column1">
                 <img src="../../assets/images/evaseg-logo21.png" class="logo-menu">
                 <br>
                 <button type="submit" class="btn btn" (click)="goTonextPage('inicioInstructor')">
@@ -54,21 +55,22 @@
                 <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/bandejaInstructor')">
                     <i class="bi bi-inbox"></i> Bandeja de entrada
                 </button>
-                <button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilInstructor')">
+                <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/perfilInstructor')">
                     <i class="bi bi-person"></i> Perfil Instructor
                 </button>
 
             </div>
-            <div class="col-sm-9" id="column2">
-                <div class="photo-instructor">
-                </div>
-                <div class="personal-data">
-                    <li class="list-group-item">Nombre {{nombrePersona}}</li>
-                    <li class="list-group-item">Correo Electronico {{emailPersona}}</li>
-                    <div class="log-out">
-                        <button type="submit" class="btn btn-logout">Cerrar Sesión</button>
-                    </div>
+        </div>
+        <div id="column2">
+            <div class="photo-instructor">
+            </div>
+            <div class="personal-data">
+                <li class="list-group-item">Nombre:</li>{{nombrePersona}}
+                <li class="list-group-item">Correo Electronico:</li>{{emailPersona}}
+                <div class="log-out">
+                    <button type="submit" class="btn btn-logout" (click)="goTonextPage('/login')">Cerrar Sesión</button>
                 </div>
             </div>
         </div>
     </div>
+</div>
