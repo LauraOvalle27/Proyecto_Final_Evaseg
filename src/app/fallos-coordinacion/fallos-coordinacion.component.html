@@ -77,58 +77,61 @@
                                         <option *ngFor="let item of dataFichas" [ngValue]="item">{{item.idFichaFK}}
                                         </option>
                                     </select>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="mb-3">
-                                        <label for="nameAprendiz" class="form-label">Nombre de aprendiz</label>
-                                        <select class="form-select" id="fichaAprendiz" [(ngModel)]="aprendizChoice"
-                                            name="aprendiz-seleccionado">
-                                            <option selected>Aprendiz..</option>
-                                            <option *ngFor="let item of listaInformacionAprendiz" [ngValue]="item">
-                                                {{item.first_name}} {{item.second_name}} {{item.last_name}}
-                                                {{item.second_last_name}}
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="mb-3">
-                                        <label for="IdAprendiz" class="form-label">Número de documento</label>
-                                        <input type="text" class="form-control" id="IdAprendiz"
-                                            [(ngModel)]="numeroDocumentoAprendiz" name="numero-documento">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="mb-3">
-                                        <label for="programAprendiz" class="form-label">Programa de formación</label>
-                                        <input type="text" class="form-control" id="programAprendiz"
-                                            [(ngModel)]="programaFormacionAprendiz" name="programa-formacion">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="mb-3">
-                                        <label for="branchAprendiz" class="form-label">Coordinación</label>
-                                        <input type="text" class="form-control" id="branchAprendiz"
-                                            [(ngModel)]="coordinacionAprendiz" name="coordinacion-aprendiz">
-                                    </div>
-                                </div>
+                                </div>                                
                                 <div class="mb-3">
-                                    <label for="causesAprendiz" class="form-label">Escribir fallos</label>
-                                    <textarea  class="form-control" id="causes"></textarea>
+                                    <label for="nameAprendiz" class="form-label">Nombre de aprendiz</label>
+                                    <select class="form-select" id="fichaAprendiz" [(ngModel)]="aprendizChoice"
+                                        name="aprendiz-seleccionado" (change)="updateFields()">
+                                        <option selected>Aprendiz..</option>
+                                        <option *ngFor="let item of listaInformacionAprendiz" [ngValue]="item">
+                                            {{item.informacion.first_name}} {{item.informacion.second_name}} {{item.informacion.last_name}} {{item.informacion.second_last_name}}
+                                        </option>
+                                    </select>
+                                </div>                        
+                                <div class="mb-3">
+                                    <label for="IdAprendiz" class="form-label">Número de documento</label>
+                                    <input type="text" class="form-control" id="IdAprendiz"
+                                        [(ngModel)]="numeroDocumentoAprendiz" name="numero-documento">
+                                </div>                              
+                                <div class="mb-3">
+                                    <label for="programAprendiz" class="form-label">Programa de formación</label>
+                                    <input type="text" class="form-control" id="programAprendiz"
+                                        [(ngModel)]="programaFormacionAprendiz" name="programa-formacion">
+                                </div>                               
+                                <div class="mb-3">
+                                    <label for="nameAprendiz" class="form-label">Procesos Activos</label>
+                                    <select class="form-select" id="procesosActivos" [(ngModel)]="procesoChoice"
+                                    name="proceso-seleccionado" (change)="viewProceso()">
+                                        <option selected>ID de Procesos Activos...</option>
+                                        <option *ngFor="let item of procesosAprendiz" [ngValue]="item">
+                                            {{item.id}}
+                                        </option>
+                                    </select>
                                 </div>
-                            </div>
-                            <div class="col-12">
-                                <label for="branchAprendiz" class="form-label">Seleccionar Documentos</label>
-                                <div class="input-group">
-                                    <input type="file" enctype="multipart/form-data" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                                </div> 
-                                <div class="mb-3 text-center"> 
-                                    <button type="submit" class="btn btn-submit">Enviar</button>
-                                </div>
-                            </div>                           
+                            </div>                         
                         </div>
                     </form>
                 </div>
+                
+                <div class="col-sm-12" id="semicolumn" *ngIf="structure" >
+                                            
+                </div>
+                
+                <div class="col-sm-12" id="semicolumn">
+                    <div class="mb-3">
+                        <label for="causesAprendiz" class="form-label">Escribir fallos</label>
+                        <textarea  class="form-control" id="causes"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <label for="branchAprendiz" class="form-label">Seleccionar Documentos</label>
+                        <div class="input-group">
+                            <input type="file" enctype="multipart/form-data" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                        </div> 
+                        <div class="mb-3 text-center"> 
+                            <button type="submit" class="btn btn-submit">Enviar</button>
+                        </div>
+                    </div>
+               </div>
             </div>
         </div>
     </div>

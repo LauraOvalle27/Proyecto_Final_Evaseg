@@ -18,9 +18,7 @@ export class FallosCoordinacionComponent implements OnInit{
   idCordinacion: string = '';
   dataFichas: any;
   dataAprendizFicha: any;
-  dataProcesoAprediz: any;
 
-  listaIdFichaFK: any = [];
   listaIdAprendiz: any = [];
   listaInformacionAprendiz: any = [];
 
@@ -28,9 +26,11 @@ export class FallosCoordinacionComponent implements OnInit{
   aprendizChoice: any;
 
   numeroDocumentoAprendiz: string = '';
-  informacionFicha: any;
   programaFormacionAprendiz: string = '';
-  coordinacionAprendiz: string = '';
+  procesosAprendiz: any = [];
+
+  structure = false;
+  procesoChoice: any;
 
   ngOnInit() {
     // Sse obtiene la información del instructor del localStorage.
@@ -64,9 +64,8 @@ export class FallosCoordinacionComponent implements OnInit{
 
     this.numeroDocumentoAprendiz = '';
     this.programaFormacionAprendiz = '';
-    this.coordinacionAprendiz = '';
 
-    // primero se la lista de ID's de usuarios que son aprendices de la ficha elegida
+    // primero se guarda la lista de ID's de usuarios que son aprendices de la ficha elegida
     this.http.get(`http://127.0.0.1:8000/evaseg_app/consulta-aprendiz-ficha/?idFichaFK=${this.fichaChoice.idFichaFK}`).subscribe(
       (data: any) => {
         this.dataAprendizFicha = data;        
@@ -76,24 +75,46 @@ export class FallosCoordinacionComponent implements OnInit{
           this.listaIdAprendiz.push(objeto.idAprendizFK);
         }
 
-        for(const objeto of this.listaIdAprendiz){
-          this.http.get(`http://127.0.0.1:8000/evaseg_app/consulta-aprendiz-ficha/?idAprendizFK=${objeto}&proceso_activo=${true}&tipo_proceso=${3}`).subscribe((data: any) =>{            
-            this.dataProcesoAprediz = data;
-            // aquí guardamos la información de los aprendices de la ficha con procesos activos.             
-            this.listaInformacionAprendiz.push(this.dataProcesoAprediz);          
-          })
-        }
-    
         // con este ciclo buscamos, con ayuda de los ID's obtenidos en la lista anterior, se obtiene la información de los aprendices
         for (const objeto of this.listaIdAprendiz){
           this.http.get(`http://127.0.0.1:8000/evaseg_app/usuario/${objeto}`).subscribe((data: any) =>{            
-            this.dataProcesoAprediz = data;
+            const dataAprendiz = {
+              idAprendizFicha: objeto,
+              informacion: data
+            };
             // aquí guardamos la información de los aprendices de la ficha.             
-            this.listaInformacionAprendiz.push(this.dataProcesoAprediz);          
+            this.listaInformacionAprendiz.push(dataAprendiz);          
           })
         }
+        console.log(this.listaInformacionAprendiz)
       });   
   }
 
+  updateFields() {
+    /** 
+     * se limpia los campos en donde se muestra la información de los aprendices, pues en caso que 
+     * el instructor cambie de aprendiz luego de elegir por primera vez.
+     **/
+    this.numeroDocumentoAprendiz = '';
 
+    // Se obtiene el número de documento del aprendiz para mostrarlo en pantalla
+    this.numeroDocumentoAprendiz = this.aprendizChoice.informacion.numeroDocumento
+
+    // de esta forma se obtiene la información correspondiente a la ficha.
+    this.http.get(`http://127.0.0.1:8000/evaseg_app/fichas/${this.fichaChoice.idFichaFK}`).subscribe((data: any) =>{
+      // se obtiene el programa de formación del aprendiz
+      this.programaFormacionAprendiz = data.programaFormacion;
+    });
+    this.http.get(`http://127.0.0.1:8000/evaseg_app/consulta-proceso-aprediz/?aprendiz_id=${this.aprendizChoice.idAprendizFicha}&proceso_activo=True&tipo_proceso=3`).subscribe((data: any) =>{             
+      this.procesosAprendiz = data;                                   
+    });
+  }
+  viewProceso(){
+    if(this.procesoChoice !='ID de Procesos Activos...'){
+      this.structure = true;
+    }
+    this.http.get(`http://127.0.0.1:8000/evaseg_app/consulta-proceso-aprediz/?aprendiz_id=${this.aprendizChoice.idAprendizFicha}&proceso_activo=True&tipo_proceso=3`).subscribe((data: any) =>{             
+      this.procesosAprendiz = data;                                   
+    })
+  }
 }
