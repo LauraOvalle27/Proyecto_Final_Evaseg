@@ -34,26 +34,17 @@
     margin-top: 30px;
 }
   
-.row {
-    margin-bottom: 50px;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap; /* Asegura que las filas se envuelvan si no caben en una sola línea */
-    text-align: center;
-}
 
 #row-2{
     margin-left: 100px;
 }
 
-.cointainer2{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Crea tres columnas de igual ancho */
-    gap: 10px; /* Espacio entre las columnas */
-    margin-top: 20px;
+.row{
+    margin-top: 30px;
 }
 
-@media (max-width: 1030px) {
+
+@media (max-width: 900px) {
 
     .home-logo{
         width: 300px;

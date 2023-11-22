@@ -52,7 +52,7 @@
             <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaAprendiz')">
                 <i class="bi bi-bell"></i> Bandeja de entrada
             </button>
-            <button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilAprendiz')">
+            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/perfilAprendiz')">
                 <i class="bi bi-person"></i> Perfil Aprendiz
             </button>
         </div>
@@ -63,16 +63,6 @@
                 <h3>Consultar Historial</h3>
                 <form class="form">
                     <div class="row">
-                        <div class="mb-3">
-                            <select class="form-select" id="fichaAprendiz" [(ngModel)]="relacionFichaAprendiz"
-                                name="ficha-seleccionada">
-                                <option selected>Tipo de proceso...</option>
-                                <option selected>Llamado de atención</option>
-                                <option selected>Reporte a comité</option>
-                                <option *ngFor="let item of historialProcesos" [ngValue]="item">
-                                    {{item.tipoProcesoFK}}</option>
-                            </select>
-                        </div>
                         <div class="col-mb-3">
                             <div class="mb-3 text-center">
                                 <button type="submit" class="btn btn-submit"

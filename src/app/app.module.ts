@@ -28,6 +28,7 @@ import { BandejaAprendizComponent } from './bandeja-aprendiz/bandeja-aprendiz.co
 import { DescargosAprendizComponent } from './descargos-aprendiz/descargos-aprendiz.component';
 import { PerfilAprendizComponent } from './perfil-aprendiz/perfil-aprendiz.component';
 import { BandejaInstructorComponent } from './bandeja-instructor/bandeja-instructor.component';
+import { ReportarCoordinacionComponent } from './reportar-coordinacion/reportar-coordinacion.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { BandejaInstructorComponent } from './bandeja-instructor/bandeja-instruc
     BandejaAprendizComponent,
     DescargosAprendizComponent,
     PerfilAprendizComponent,
-    BandejaInstructorComponent
+    BandejaInstructorComponent,
+    ReportarCoordinacionComponent
   ],
   imports: [
     BrowserModule,

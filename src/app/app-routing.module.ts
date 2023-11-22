@@ -24,6 +24,7 @@ import { BandejaAprendizComponent } from './bandeja-aprendiz/bandeja-aprendiz.co
 import { DescargosAprendizComponent } from './descargos-aprendiz/descargos-aprendiz.component';
 import { PerfilAprendizComponent } from './perfil-aprendiz/perfil-aprendiz.component';
 import { BandejaInstructorComponent } from './bandeja-instructor/bandeja-instructor.component';
+import { ReportarCoordinacionComponent } from './reportar-coordinacion/reportar-coordinacion.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -39,13 +40,14 @@ const routes: Routes = [
 
   { path: 'inicioCoordinacion', component: CoordinacionInicioComponent }, 
   { path: 'llamadosCoordinacion', component: LlamadosCoordinacionComponent }, 
+  { path: 'reportarAprendizCoordinacion', component: ReportarCoordinacionComponent},
   { path: 'felicitacionCoordinacion', component: FelicitacionCoordinacionComponent },
   { path: 'fallosCoordinacion', component: FallosCoordinacionComponent },
   { path: 'actasCoordinacion', component: ActasCoordinacionComponent },
   { path: 'bandejaCoordinacion', component: BandejaCoordinacionComponent }, 
   { path: 'perfilCoordinacion', component: PerfilCoordinacionComponent } ,
+
   { path: 'inicioAprendiz', component: InicioAprendizComponent },
-  
   { path: 'miHistorial', component: MiHistorialComponent },
   { path: 'citacionesAprendiz', component: CitacionesAprendizComponent },
   { path: 'bandejaAprendiz', component: BandejaAprendizComponent },

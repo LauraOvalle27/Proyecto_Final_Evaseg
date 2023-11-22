@@ -1,4 +1,4 @@
-/* Estilos consultar historial perfil aprendiz */
+/* Estilos reporte perfil coordinación */
 
 /* Estilos nav responsive */
 
@@ -65,6 +65,7 @@ nav ul li a {
     }
     nav{
         background-color: rgb(240, 240, 240);
+        align-items: center;
     }
     nav ul li{
         display: block;
@@ -83,13 +84,11 @@ nav ul li a {
         display: block;
     }
     #column2{
-        margin-top: 40px;
-        justify-content: center;
-        
+         margin-top: 40px;
+         justify-content: center;
     }
-    
-}
 
+}
 
 /* Side bar */
 
@@ -101,15 +100,14 @@ nav ul li a {
     position: fixed;
     height: 100vh;
 }
- 
- 
+
 .logo-menu{
     width: 300px;
     align-items: center;
 }
- 
- /* Sidebar opciones */
- 
+
+/* Sidebar opciones */
+
 .btn{
     width: 300px;
     background: #6d9d6d;
@@ -120,10 +118,11 @@ nav ul li a {
     height: 50px;
     font-size: 22px;
 }
- 
+
 .btn i {
     margin-right: 8px; /* Ajusta la cantidad de espacio entre el icono y el texto */
 }
+
 
 #column2{
     padding: 40px;
@@ -131,72 +130,66 @@ nav ul li a {
     max-width: 1000px;
 }
 
- 
+
 #semicolumn{
     background-color:  rgb(240, 240, 240);
     padding: 40px;
     border-radius: 20px;
 }
 
-#semicolumn h3{ 
+#semicolumn h3 {
     text-align: center;
-    margin-bottom: 30px;
+    padding-bottom: 30px;
 }
- 
 
-#process{
-    background-color:  rgb(240, 240, 240);
-    margin: 10px;
-    width: 900px;
-}
- 
 /* Estilos para el formulario */
 .form {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-   
+  
+/* Estilos para cada fila */
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+
 .btn-submit{
     background: #6d9d6d;
     color: white;
-    margin-top: 40px;
+    margin-top: 70px;
     text-align: center;
 }
 
+
+#message{
+    color: red;
+}
+
+.button{
+    margin-right: 10px;
+}
 
 @media (min-width: 1600px) {
     #column2 {
         margin-left: 30%;
     }
 }
- 
+
 
 /* Estilos para ocultar la barra lateral en dispositivos pequeños */
 @media (max-width: 1187px) {
-    #column1 {
+   #column1 {
         display: none !important; /* Oculta la barra lateral por defecto en pantallas pequeñas */
         transform: translateX(-100%); /* Desplaza la barra completamente fuera de la vista */
     }
     #column2{
-        margin: 0 auto;
-        margin-top: 100px;
-    }
-    #process{
-        margin: 0 auto;
-        width: 500px;
-        margin: 10px;
-    }
-}
-
-@media (max-width: 500px) {
-    .btn-submit{
-        width: 200px;
-    }
-    .profile{
-        height: 120px; /* Ajusta la altura del contenedor según tus necesidades */
-    }
-    #process{
-        margin: 0 auto;
+         margin: 0 auto;
+         margin-top: 100px;
     }
 }

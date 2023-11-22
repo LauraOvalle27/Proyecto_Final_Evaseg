@@ -1,67 +1,66 @@
 <div class="container">
-    <div class="row">
-      <div class="col-md-1" id="column1">
+  <div class="row">
+    <div class="col-md-1" id="column1">
+    </div>
+    <div class="col-md-10" id="column2">
+      <img src="../../assets/images/evaseg-logo21.png" class="home-logo">
+      <div class="title-welcome">
+        <h1>Bienvenido Coordinador {{nombrePersona}}</h1>
       </div>
-      <div class="col-md-10" id="column2">
-        <img src="../../assets/images/evaseg-logo21.png" class="home-logo">
-        <div class="title-welcome">
-          <h1>Bienvenido Coordinador {{nombrePersona}}</h1>
+    </div>
+  </div>
+  <div class="row" id="row-2">
+    <div class="col">
+      <div class="card" (click)="goTonextPage('llamadosCoordinacion')">
+        <div class="card-body">
+          <h2 class="card-title">Llamado de atención</h2>
+          <i class="bi bi-exclamation-circle"></i>
         </div>
       </div>
     </div>
-    <div class="row" id="row-2">
-      <div class="col">
-        <div class="card" (click)="goTonextPage('llamadosCoordinacion')">
-          <div class="card-body">
-            <h2 class="card-title">Llamado de atención</h2>
-            <i class="bi bi-exclamation-circle"></i>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" (click)="goTonextPage('felicitacionCoordinacion')">
-          <div class="card-body">
-            <h2 class="card-title">Felicitación</h2>
-            <i class="bi bi-bookmark-check"></i>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" (click)="goTonextPage('fallosCoordinacion')">
-          <div class="card-body">
-            <h2 class="card-title">Fallos</h2>
-            <i class="bi bi-file-text"></i>
-          </div>
+    <div class="col">
+      <div class="card" (click)="goTonextPage('felicitacionCoordinacion')">
+        <div class="card-body">
+          <h2 class="card-title">Felicitación</h2>
+          <i class="bi bi-bookmark-check"></i>
         </div>
       </div>
     </div>
-      <div class="row" id="row-2" >
-      <div class="col">
-        <div class="card" (click)="goTonextPage('actasCoordinacion')">
-          <div class="card-body">
-            <h2 class="card-title">Actas</h2>
-            <i class="bi bi-files"></i>
-          </div>
+    <div class="col">
+      <div class="card" (click)="goTonextPage('reportarAprendizCoordinacion')">
+        <div class="card-body">
+          <h2 class="card-title">Reportar aprendiz</h2>
+          <i class="bi bi-flag"></i>
         </div>
       </div>
-      <div class="col">
-        <div class="card" (click)="goTonextPage('bandejaCoordinacion')">
-          <div class="card-body">
-            <h2 class="card-title">Bandeja de entrada</h2>
-            <i class="bi bi-inbox"></i>
-          </div>
+    </div>
+  </div>
+  <div class="row" id="row-2">
+    <div class="col">
+      <div class="card" (click)="goTonextPage('fallosCoordinacion')">
+        <div class="card-body">
+          <h2 class="card-title">Fallos</h2>
+          <i class="bi bi-files"></i>
         </div>
       </div>
-      <div class="col">
-        <div class="card" (click)="goTonextPage('perfilCoordinacion')">
-          <div class="card-body">
-            <h2 class="card-title">Perfil</h2>
-            <i class="bi bi-person-circle"></i>
-          </div>
+    </div>
+    <div class="col">
+      <div class="card" (click)="goTonextPage('bandejaCoordinacion')">
+        <div class="card-body">
+          <h2 class="card-title">Bandeja de entrada</h2>
+          <i class="bi bi-inbox"></i>
         </div>
       </div>
+    </div>
+    <div class="col">
+      <div class="card" (click)="goTonextPage('perfilCoordinacion')">
+        <div class="card-body">
+          <h2 class="card-title">Perfil</h2>
+          <i class="bi bi-person-circle"></i>
+        </div>
       </div>
-
+    </div>
+  </div>
   <div class="col-md-1" id="column3">
   </div>
-  </div>
+</div>
