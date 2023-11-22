@@ -160,13 +160,10 @@ nav ul li a {
 .btn-submit{
     background: #6d9d6d;
     color: white;
-    margin-top: 70px;
+    margin-top: 40px;
     text-align: center;
 }
 
-.btn-profile{
-    background: #367037;
-}
 
 @media (min-width: 1600px) {
     #column2 {
@@ -175,7 +172,7 @@ nav ul li a {
 }
  
 
- /* Estilos para ocultar la barra lateral en dispositivos pequeños */
+/* Estilos para ocultar la barra lateral en dispositivos pequeños */
 @media (max-width: 1187px) {
     #column1 {
         display: none !important; /* Oculta la barra lateral por defecto en pantallas pequeñas */
