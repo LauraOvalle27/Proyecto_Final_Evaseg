@@ -13,7 +13,10 @@
                         <i class="bi bi-house"></i> Inicio
                     </button></li>
                 <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('llamadosCoordinacion')">
-                        <i class="bi bi-exclamation-circle"></i> Llamados
+                        <i class="bi bi-exclamation-circle"></i> Llamado de atención
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('reportarAprendizCoordinacion')">
+                        <i class="bi bi-flag"></i> Reportar aprendiz
                     </button></li>
                 <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('felicitacionCoordinacion')">
                         <i class="bi bi-bookmark-check"></i> Felicitación
@@ -21,10 +24,7 @@
                 <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('fallosCoordinacion')">
                         <i class="bi bi-file-text"></i> Fallos
                     </button></li>
-                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('actasCoordinacion')">
-                        <i class="bi bi-pencil"></i> Actos
-                    </button></li>
-                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaAprendiz')">
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaCoordinacion')">
                         <i class="bi bi-inbox"></i> Bandeja de entrada
                     </button></li>
                 <li><button type="submit" class="btn btn-profile" id="icono"
@@ -44,7 +44,10 @@
                         <i class="bi bi-house"></i> Inicio
                     </button>
                     <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('llamadosCoordinacion')">
-                        <i class="bi bi-exclamation-circle"></i> Llamados
+                        <i class="bi bi-flag"></i> Llamado de atención
+                    </button>
+                    <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('reportarAprendizCoordinacion')">
+                        <i class="bi bi-exclamation-circle"></i> Reportar aprendiz
                     </button>
                     <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('felicitacionCoordinacion')">
                         <i class="bi bi-bookmark-check"></i> Felicitación
@@ -52,16 +55,12 @@
                     <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('fallosCoordinacion')">
                         <i class="bi bi-file-text"></i> Fallos
                     </button>
-                    <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('actasCoordinacion')">
-                        <i class="bi bi-files"></i> Actas
-                    </button>
                     <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaCoordinacion')">
                         <i class="bi bi-inbox"></i> Bandeja de entrada
                     </button>
                     <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/perfilCoordinacion')">
                         <i class="bi bi-person"></i> Perfil Coordianción
                     </button>
-
                 </div>
             </div>
             <div id="column2">
@@ -76,7 +75,8 @@
                                         <select class="form-select" id="fichaAprendiz" [(ngModel)]="fichaChoice"
                                             name="ficha-seleccionada" (change)="apprenticeCard()">
                                             <option selected>Ficha...</option>
-                                            <option *ngFor="let item of dataFichas" [ngValue]="item">{{item.idFichaFK}}</option>
+                                            <option *ngFor="let item of dataFichas" [ngValue]="item">{{item.idFichaFK}}
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
@@ -116,9 +116,11 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="mb-3">
-                                        <label for="branchAprendiz" class="form-label">Faltas (Escriba el número de la falta
+                                        <label for="branchAprendiz" class="form-label">Faltas (Escriba el número de la
+                                            falta
                                             según el manual del aprendiz)
-                                            <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25" (click)="openPDF()">
+                                            <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25"
+                                                (click)="openPDF()">
                                                 Manual del aprendiz
                                             </a>
                                         </label>
@@ -137,13 +139,14 @@
                                     <label for="branchAprendiz" class="form-label">Seleccionar Documentos</label>
                                     <div class="input-group">
                                         <input type="file" enctype="multipart/form-data" class="form-control"
-                                            id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload"
-                                            (change)="onFileSelected($event)">
+                                            id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+                                            aria-label="Upload" (change)="onFileSelected($event)">
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="mb-3 text-center">
-                                        <button type="submit" class="btn btn-submit" (click)="validateFields()">Enviar</button>
+                                        <button type="submit" class="btn btn-submit"
+                                            (click)="validateFields()">Enviar</button>
                                         <p id="message">{{message}}</p>
                                     </div>
                                 </div>
@@ -154,3 +157,4 @@
             </div>
         </div>
     </div>
+</div>

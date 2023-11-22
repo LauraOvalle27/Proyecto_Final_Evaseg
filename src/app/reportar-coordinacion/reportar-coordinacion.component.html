@@ -15,7 +15,8 @@
             <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('llamadosCoordinacion')">
                 <i class="bi bi-exclamation-circle"></i> Llamado de atención
             </button></li>
-            <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('reportarAprendizCoordinacion')">
+            <li><button type="submit" class="btn btn" id="icono"
+                (click)="goTonextPage('reportarAprendizCoordinacion')">
                 <i class="bi bi-flag"></i> Reportar aprendiz
             </button></li>
             <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('felicitacionCoordinacion')" >
@@ -62,27 +63,28 @@
             </button>
         </div>
         </div>
-        <div id="column2">
-            <div class="row">
-                <div class="col-sm-12" id="semicolumn">
-                    <h3>Fallos</h3>
-                    <form class="form">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="mb-3">
-                                    <label for="fichaAprendiz" class="form-label">Ficha</label>
-                                    <select class="form-select" id="fichaAprendiz" [(ngModel)]="fichaChoice"
-                                        name="ficha-seleccionada" (change)="apprenticeCard()">
-                                        <option selected>Ficha...</option>
-                                        <option *ngFor="let item of dataFichas" [ngValue]="item">{{item.idFichaFK}}
-                                        </option>
-                                    </select>
+            <div id="column2">
+                <div class="row">
+                    <div class="col-sm-12" id="semicolumn">
+                        <h3>Reportar Aprendiz</h3>
+                        <form class="form">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label for="fichaAprendiz" class="form-label">Ficha</label>
+                                        <select class="form-select" id="fichaAprendiz" [(ngModel)]="fichaChoice"
+                                            name="ficha-seleccionada" (change)="apprenticeCard()">
+                                            <option selected>Ficha...</option>
+                                            <option *ngFor="let item of dataFichas" [ngValue]="item">{{item.idFichaFK}}
+                                            </option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="mb-3">
                                         <label for="nameAprendiz" class="form-label">Nombre de aprendiz</label>
                                         <select class="form-select" id="fichaAprendiz" [(ngModel)]="aprendizChoice"
-                                            name="aprendiz-seleccionado">
+                                            name="aprendiz-seleccionado" (change)="updateFields()">
                                             <option selected>Aprendiz..</option>
                                             <option *ngFor="let item of listaInformacionAprendiz" [ngValue]="item">
                                                 {{item.first_name}} {{item.second_name}} {{item.last_name}}
@@ -112,24 +114,49 @@
                                             [(ngModel)]="coordinacionAprendiz" name="coordinacion-aprendiz">
                                     </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="causesAprendiz" class="form-label">Escribir fallos</label>
-                                    <textarea  class="form-control" id="causes"></textarea>
+                                <div class="col-sm-6">
+                                    <label for="faltaAprendiz" class="form-label">Tipo de falta</label>
+                                    <select class="form-select" aria-label="Default select example" [(ngModel)]="calificacionFalta" name="calificacion-falta">
+                                        <option selected>Tipo de falta...</option>
+                                        <option value="Leve">Leve</option>
+                                        <option value="Grave">Grave</option>
+                                        <option value="Gravísima">Gravísima</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label for="causesAprendiz" class="form-label">Causas del reporte</label>
+                                        <textarea class="form-control" id="causes"  [(ngModel)]="causasProceso" name="cuasas-proceso"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label for="branchAprendiz" class="form-label">Faltas (Escriba el número de la fata
+                                            según el manual del aprendiz)
+                                            <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25" (click)="openPDF()">
+                                                Manual del aprendiz
+                                            </a></label>
+                                        <input type="text" class="form-control" id="branchAprendiz" [(ngModel)]="faltasManual" name="faltas-manual">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <label for="branchAprendiz" class="form-label">Seleccionar Documentos</label>
+                                    <div class="input-group">
+                                        <input type="file" class="form-control" id="inputGroupFile04"
+                                            aria-describedby="inputGroupFileAddon04" aria-label="Upload"
+                                            (change)="onFileSelected($event)">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="mb-3 text-center">
+                                        <button type="submit" class="btn btn-submit" (click)="validateFields()">Enviar</button>
+                                        <p id="message">{{message}}</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <label for="branchAprendiz" class="form-label">Seleccionar Documentos</label>
-                                <div class="input-group">
-                                    <input type="file" enctype="multipart/form-data" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                                </div> 
-                                <div class="mb-3 text-center"> 
-                                    <button type="submit" class="btn btn-submit">Enviar</button>
-                                </div>
-                            </div>                           
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
