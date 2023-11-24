@@ -31,6 +31,7 @@ export class FallosCoordinacionComponent implements OnInit{
 
   structure = false;
   procesoChoice: any;
+  message: string = "";
 
   ngOnInit() {
     // Sse obtiene la información del instructor del localStorage.
@@ -112,9 +113,11 @@ export class FallosCoordinacionComponent implements OnInit{
   viewProceso(){
     if(this.procesoChoice !='ID de Procesos Activos...'){
       this.structure = true;
-    }
-    this.http.get(`http://127.0.0.1:8000/evaseg_app/consulta-proceso-aprediz/?aprendiz_id=${this.aprendizChoice.idAprendizFicha}&proceso_activo=True&tipo_proceso=3`).subscribe((data: any) =>{             
+      this.http.get(`http://127.0.0.1:8000/evaseg_app/consulta-proceso-aprediz/?aprendiz_id=${this.aprendizChoice.idAprendizFicha}&proceso_activo=True&tipo_proceso=3`).subscribe((data: any) =>{             
       this.procesosAprendiz = data;                                   
-    })
+      })
+    }else{
+      
+    }    
   }
 }
