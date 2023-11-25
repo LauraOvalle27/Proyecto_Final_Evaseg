@@ -149,14 +149,7 @@ export class ReportarCoordinacionComponent {
           this.formDataEnvio == null  ||
           this.formDataEnvio == undefined
       ){
-        this.message = '¡Todos los campos son obligarios!'
-        console.log(this.fichaChoice)
-        console.log(this.aprendizChoice, this.numeroDocumentoAprendiz, this.programaFormacionAprendiz, this.coordinacionAprendiz)
-        console.log(this.causasProceso)      
-        console.log('calif', this.calificacionFalta)
-        console.log(this.faltasManual)
-        console.log(this.formDataEnvio)
-        
+        this.message = '¡Todos los campos son obligarios!'       
       }
       else{
         this.message = '';
@@ -213,7 +206,7 @@ export class ReportarCoordinacionComponent {
         },
         error => {
           // Manejor de errores:
-          console.log('Error:', error);
+          this.message = "Algo salió mal. Comunícate con el soporte."
         }
       );   
     }  
@@ -228,8 +221,7 @@ export class ReportarCoordinacionComponent {
     }
   
     //Función para abrir manual del aprendiz en página especifica
-    openPDF(): void {
-      
+    openPDF(): void {      
       const pdfURL = 'https://www.poli.edu.co/sites/default/files/reglamento-aprendiz-2012-sena.pdf';
       const numeroDePagina = 13; 
       window.open(`${pdfURL}#page=${numeroDePagina}`, '_blank');

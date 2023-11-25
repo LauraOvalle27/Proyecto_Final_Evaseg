@@ -1,138 +1,208 @@
 <div>
     <header>
         <nav>
-          <input type="checkbox" id="check">
-          <label for="check" class="checkbtn">
-            <i class="bi bi-list"></i>
-          </label>
-          <a href="#" class="url">
-            <img src="../../assets/images/evaseg-logo21.png" class="logo">
-          </a>
-          <ul>
-            <li><button type="submit" class="btn btn" (click)="goTonextPage('/inicioCoordinacion')" >
-                <i class="bi bi-house"></i> Inicio
-            </button></li>
-            <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('llamadosCoordinacion')">
-                <i class="bi bi-exclamation-circle"></i> Llamado de atención
-            </button></li>
-            <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('reportarAprendizCoordinacion')">
-                <i class="bi bi-flag"></i> Reportar aprendiz
-            </button></li>
-            <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('felicitacionCoordinacion')" >
-                <i class="bi bi-bookmark-check"></i> Felicitación
-            </button></li>
-            <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('fallosCoordinacion')">
-                <i class="bi bi-file-text"></i> Fallos
-            </button></li>
-            <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaAprendiz')" >
-                <i class="bi bi-inbox"></i> Bandeja de entrada
-            </button></li>
-            <li><button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilCoordinacion')">
-                <i class="bi bi-person"></i> Perfil Coordianción
-            </button></li>
-          </ul>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="bi bi-list"></i>
+            </label>
+            <a href="#" class="url">
+                <img src="../../assets/images/evaseg-logo21.png" class="logo">
+            </a>
+            <ul>
+                <li><button type="submit" class="btn btn" (click)="goTonextPage('/inicioCoordinacion')">
+                        <i class="bi bi-house"></i> Inicio
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('llamadosCoordinacion')">
+                        <i class="bi bi-exclamation-circle"></i> Llamado de atención
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono"
+                        (click)="goTonextPage('reportarAprendizCoordinacion')">
+                        <i class="bi bi-flag"></i> Reportar aprendiz
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('felicitacionCoordinacion')">
+                        <i class="bi bi-bookmark-check"></i> Felicitación
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('fallosCoordinacion')">
+                        <i class="bi bi-file-text"></i> Fallos
+                    </button></li>
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaAprendiz')">
+                        <i class="bi bi-inbox"></i> Bandeja de entrada
+                    </button></li>
+                <li><button type="submit" class="btn btn-profile" id="icono"
+                        (click)="goTonextPage('/perfilCoordinacion')">
+                        <i class="bi bi-person"></i> Perfil Coordianción
+                    </button></li>
+            </ul>
         </nav>
-      </header>
-<div>
-<div>
-    <div class="row">
-        <div id="column1" >
-            <img src="../../assets/images/evaseg-logo21.png" class="logo-menu">
-            <br>
-            <button type="submit" class="btn btn" (click)="goTonextPage('inicioCoordinacion')">
-                <i class="bi bi-house"></i> Inicio
-            </button>
-            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('llamadosCoordinacion')">
-                <i class="bi bi-exclamation-circle"></i> Llamado de atención
-            </button>
-            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('reportarAprendizCoordinacion')">
-                <i class="bi bi-flag"></i> Reportar aprendiz
-            </button>
-            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('felicitacionCoordinacion')">
-                <i class="bi bi-bookmark-check"></i> Felicitación
-            </button>
-            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('fallosCoordinacion')">
-                <i class="bi bi-file-text"></i> Fallos
-            </button>
-            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaCoordinacion')">
-                <i class="bi bi-inbox"></i> Bandeja de entrada
-            </button>
-            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/perfilCoordinacion')">
-                <i class="bi bi-person"></i> Perfil Coordianción
-            </button>
-        </div>
-        </div>
-        <div id="column2">
+    </header>
+    <div>
+        <div>
             <div class="row">
-                <div class="col-sm-12" id="semicolumn">
-                    <h3>Fallos</h3>
-                    <form class="form">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="mb-3">
-                                    <label for="fichaAprendiz" class="form-label">Ficha</label>
-                                    <select class="form-select" id="fichaAprendiz" [(ngModel)]="fichaChoice"
-                                        name="ficha-seleccionada" (change)="apprenticeCard()">
-                                        <option selected>Ficha...</option>
-                                        <option *ngFor="let item of dataFichas" [ngValue]="item">{{item.idFichaFK}}
-                                        </option>
-                                    </select>
-                                </div>                                
-                                <div class="mb-3">
-                                    <label for="nameAprendiz" class="form-label">Nombre de aprendiz</label>
-                                    <select class="form-select" id="fichaAprendiz" [(ngModel)]="aprendizChoice"
-                                        name="aprendiz-seleccionado" (change)="updateFields()">
-                                        <option selected>Aprendiz..</option>
-                                        <option *ngFor="let item of listaInformacionAprendiz" [ngValue]="item">
-                                            {{item.informacion.first_name}} {{item.informacion.second_name}} {{item.informacion.last_name}} {{item.informacion.second_last_name}}
-                                        </option>
-                                    </select>
-                                </div>                        
-                                <div class="mb-3">
-                                    <label for="IdAprendiz" class="form-label">Número de documento</label>
-                                    <input type="text" class="form-control" id="IdAprendiz"
-                                        [(ngModel)]="numeroDocumentoAprendiz" name="numero-documento">
-                                </div>                              
-                                <div class="mb-3">
-                                    <label for="programAprendiz" class="form-label">Programa de formación</label>
-                                    <input type="text" class="form-control" id="programAprendiz"
-                                        [(ngModel)]="programaFormacionAprendiz" name="programa-formacion">
-                                </div>                               
-                                <div class="mb-3">
-                                    <label for="nameAprendiz" class="form-label">Procesos Activos</label>
-                                    <select class="form-select" id="procesosActivos" [(ngModel)]="procesoChoice"
-                                    name="proceso-seleccionado" (change)="viewProceso()">
-                                        <option selected>ID de Procesos Activos...</option>
-                                        <option *ngFor="let item of procesosAprendiz" [ngValue]="item">
-                                            {{item.id}}
-                                        </option>
-                                    </select>
+                <div id="column1">
+                    <img src="../../assets/images/evaseg-logo21.png" class="logo-menu">
+                    <br>
+                    <button type="submit" class="btn btn" (click)="goTonextPage('inicioCoordinacion')">
+                        <i class="bi bi-house"></i> Inicio
+                    </button>
+                    <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('llamadosCoordinacion')">
+                        <i class="bi bi-exclamation-circle"></i> Llamado de atención
+                    </button>
+                    <button type="submit" class="btn btn" id="icono"
+                        (click)="goTonextPage('reportarAprendizCoordinacion')">
+                        <i class="bi bi-flag"></i> Reportar aprendiz
+                    </button>
+                    <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('felicitacionCoordinacion')">
+                        <i class="bi bi-bookmark-check"></i> Felicitación
+                    </button>
+                    <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('fallosCoordinacion')">
+                        <i class="bi bi-file-text"></i> Fallos
+                    </button>
+                    <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaCoordinacion')">
+                        <i class="bi bi-inbox"></i> Bandeja de entrada
+                    </button>
+                    <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/perfilCoordinacion')">
+                        <i class="bi bi-person"></i> Perfil Coordianción
+                    </button>
+                </div>
+            </div>
+            <div id="column2">
+                <div class="row">
+                    <div class="col-sm-12" id="semicolumn">
+                        <h3>Seleccionar Proceso</h3>
+                        <form class="form">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label for="fichaAprendiz" class="form-label">Ficha</label>
+                                        <select class="form-select" id="fichaAprendiz" [(ngModel)]="fichaChoice"
+                                            name="ficha-seleccionada" (change)="apprenticeCard()">
+                                            <option selected>Ficha...</option>
+                                            <option *ngFor="let item of dataFichas" [ngValue]="item">{{item.idFichaFK}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="nameAprendiz" class="form-label">Nombre de aprendiz</label>
+                                        <select class="form-select" id="fichaAprendiz" [(ngModel)]="aprendizChoice"
+                                            name="aprendiz-seleccionado" (change)="updateFields()">
+                                            <option selected>Aprendiz..</option>
+                                            <option *ngFor="let item of listaInformacionAprendiz" [ngValue]="item">
+                                                {{item.informacion.first_name}} {{item.informacion.second_name}}
+                                                {{item.informacion.last_name}} {{item.informacion.second_last_name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="IdAprendiz" class="form-label">Número de documento</label>
+                                        <input type="text" class="form-control" id="IdAprendiz"
+                                            [(ngModel)]="numeroDocumentoAprendiz" name="numero-documento">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="programAprendiz" class="form-label">Programa de formación</label>
+                                        <input type="text" class="form-control" id="programAprendiz"
+                                            [(ngModel)]="programaFormacionAprendiz" name="programa-formacion">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="nameAprendiz" class="form-label">Procesos Activos</label>
+                                        <select class="form-select" id="procesosActivos" [(ngModel)]="procesoChoice"
+                                            name="proceso-seleccionado" (change)="viewProceso()">
+                                            <option selected>ID de Procesos Activos...</option>
+                                            <option *ngFor="let item of procesosAprendiz" [ngValue]="item">
+                                                {{item.id}}
+                                            </option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>                         
-                        </div>
-                    </form>
-                </div>
-                
-                <div class="col-sm-12" id="semicolumn" *ngIf="structure" >
-                                            
-                </div>
-                
-                <div class="col-sm-12" id="semicolumn">
-                    <div class="mb-3">
-                        <label for="causesAprendiz" class="form-label">Escribir fallos</label>
-                        <textarea  class="form-control" id="causes"></textarea>
+                            </div>
+                        </form>
                     </div>
-                    <div class="col-12">
-                        <label for="branchAprendiz" class="form-label">Seleccionar Documentos</label>
-                        <div class="input-group">
-                            <input type="file" enctype="multipart/form-data" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                        </div> 
-                        <div class="mb-3 text-center"> 
-                            <button type="submit" class="btn btn-submit">Enviar</button>
+                    <br>
+                    <div class="col-sm-12" id="semicolumn" *ngIf="structure">
+                        <h3>Datos del Proceso</h3>
+                        <div class="grid">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5>Tipo:</h5>
+                                    <p>{{procesoChoice.tipoProcesoFK === 1 ? 'Llamado de atención' :
+                                        procesoChoice.tipoProcesoFK === 2 ? 'Felicitación' :
+                                        'Reporte a comité de evaluación y seguimiento'}}</p>
+                                </div>
+                                <div class="col-6">
+                                    <h5>Fecha de Creación:</h5>
+                                    <p>{{procesoChoice.fechaCreacionProceso}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5>Proceso Activo:</h5>
+                                    <p>{{procesoChoice.proceso_activo === true ? 'Sí' :
+                                        'No'}}</p>
+                                </div>
+                                <div class="col-6">
+                                    <h5>Acusante:</h5>
+                                    <p>Citación</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <h5>Causas:</h5>
+                                <p>{{procesoChoice.causasProceso}}</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5>Recomendación Calificación de la Falta:</h5>
+                                    <p>{{procesoChoice.recomendacionCalificacionGravedadProceso}}</p>
+                                </div>
+                                <div class="col-6">
+                                    <h5>Evidencia:</h5>
+                                    <p>{{procesoChoice.RutaEvidenciasProceso}}</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <h5>Descargos:</h5>
+                                <p>{{descargoProceso.decargoProceso}}</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5>Fecha de Descargos:</h5>
+                                    <p>{{descargoProceso.fechaEnvioDescargos}}</p>
+                                </div>
+                                <div class="col-6">
+                                    <h5>Evidencias de Descargos:</h5>
+                                    <p>{{descargoProceso.rutaSoporteDescargo}}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-               </div>
+                    <div class="col-sm-12" id="semicolumn">
+                        <h3>Fallos</h3>
+                        <div class="mb-3">
+                            <label for="causesAprendiz" class="form-label">Escribir fallos</label>
+                            <textarea class="form-control" id="causes" [(ngModel)]="decision" name="decision-comite"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="faltaAprendiz" class="form-label">Calificación De la Falta</label>
+                            <select class="form-select" aria-label="Default select example"
+                                [(ngModel)]="calificacionFalta" name="calificacion-falta">
+                                <option selected>Tipo de falta...</option>
+                                <option value="Leve">Leve</option>
+                                <option value="Grave">Grave</option>
+                                <option value="Gravísima">Gravísima</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label for="branchAprendiz" class="form-label">Seleccionar Documentos</label>
+                            <div class="input-group">
+                                <input type="file" class="form-control" id="inputGroupFile04"
+                                    aria-describedby="inputGroupFileAddon04" aria-label="Upload"
+                                    (change)="onFileSelected($event)">
+                            </div>
+                            <div class="mb-3 text-center">
+                                <button type="submit" class="btn btn-submit" (click)="validateFields()">Enviar</button>
+                            </div>
+                            <p id="message">{{message}}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
