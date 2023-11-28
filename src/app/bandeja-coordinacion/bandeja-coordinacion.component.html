@@ -9,15 +9,11 @@
                 <img src="../../assets/images/evaseg-logo21.png" class="logo">
             </a>
             <ul>
-                <li><button type="submit" class="btn btn" (click)="goTonextPage('inicioCoordinacion')">
+                <li><button type="submit" class="btn btn" (click)="goTonextPage('/inicioCoordinacion')">
                         <i class="bi bi-house"></i> Inicio
                     </button></li>
                 <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('llamadosCoordinacion')">
                         <i class="bi bi-exclamation-circle"></i> Llamado de atención
-                    </button></li>
-                <li><button type="submit" class="btn btn" id="icono"
-                        (click)="goTonextPage('reportarAprendizCoordinacion')">
-                        <i class="bi bi-flag"></i> Reportar aprendiz
                     </button></li>
                 <li><button type="submit" class="btn btn" id="icono"
                         (click)="goTonextPage('reportarAprendizCoordinacion')">
@@ -29,40 +25,45 @@
                 <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('fallosCoordinacion')">
                         <i class="bi bi-file-text"></i> Fallos
                     </button></li>
-                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaCoordinacion')">
+                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaAprendiz')">
                         <i class="bi bi-inbox"></i> Bandeja de entrada
                     </button></li>
-                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/perfilCoordinacion')">
+                <li><button type="submit" class="btn btn-profile" id="icono"
+                        (click)="goTonextPage('/perfilCoordinacion')">
                         <i class="bi bi-person"></i> Perfil Coordianción
                     </button></li>
             </ul>
         </nav>
     </header>
-    <div class="row">
-        <div id="column1">
-            <img src="../../assets/images/evaseg-logo21.png" class="logo-menu">
-            <br>
-            <button type="submit" class="btn btn" (click)="goTonextPage('inicioCoordinacion')">
-                <i class="bi bi-house"></i> Inicio
-            </button>
-            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('llamadosCoordinacion')">
-                <i class="bi bi-exclamation-circle"></i> Llamado de atención
-            </button>
-            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('reportarAprendizCoordinacion')">
-                <i class="bi bi-flag"></i> Reportar aprendiz
-            </button>
-            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('felicitacionCoordinacion')">
-                <i class="bi bi-bookmark-check"></i> Felicitación
-            </button>
-            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('fallosCoordinacion')">
-                <i class="bi bi-file-text"></i> Fallos
-            </button>
-            <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaCoordinacion')">
-                <i class="bi bi-inbox"></i> Bandeja de entrada
-            </button>
-            <button type="submit" class="btn btn-profile" id="icono" (click)="goTonextPage('/perfilCoordinacion')">
-                <i class="bi bi-person"></i> Perfil Coordianción
-            </button>
+    <div>
+        <div>
+            <div class="row">
+                <div id="column1">
+                    <img src="../../assets/images/evaseg-logo21.png" class="logo-menu">
+                    <br>
+                    <button type="submit" class="btn btn" (click)="goTonextPage('inicioCoordinacion')">
+                        <i class="bi bi-house"></i> Inicio
+                    </button>
+                    <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('llamadosCoordinacion')">
+                        <i class="bi bi-exclamation-circle"></i> Llamado de atención
+                    </button>
+                    <button type="submit" class="btn btn" id="icono"
+                        (click)="goTonextPage('reportarAprendizCoordinacion')">
+                        <i class="bi bi-flag"></i> Reportar aprendiz
+                    </button>
+                    <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('felicitacionCoordinacion')">
+                        <i class="bi bi-bookmark-check"></i> Felicitación
+                    </button>
+                    <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('fallosCoordinacion')">
+                        <i class="bi bi-file-text"></i> Fallos
+                    </button>
+                    <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('bandejaCoordinacion')">
+                        <i class="bi bi-inbox"></i> Bandeja de entrada
+                    </button>
+                    <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('/perfilCoordinacion')">
+                        <i class="bi bi-person"></i> Perfil Coordianción
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
-</div>

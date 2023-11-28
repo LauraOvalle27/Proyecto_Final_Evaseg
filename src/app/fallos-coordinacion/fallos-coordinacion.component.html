@@ -177,7 +177,8 @@
                         <h3>Fallos</h3>
                         <div class="mb-3">
                             <label for="causesAprendiz" class="form-label">Escribir fallos</label>
-                            <textarea class="form-control" id="causes" [(ngModel)]="decision" name="decision-comite"></textarea>
+                            <textarea class="form-control" id="causes" [(ngModel)]="decision"
+                                name="decision-comite"></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="faltaAprendiz" class="form-label">Calificación De la Falta</label>
@@ -198,8 +199,8 @@
                             </div>
                             <div class="mb-3 text-center">
                                 <button type="submit" class="btn btn-submit" (click)="validateFields()">Enviar</button>
+                                <p id="message">{{message}}</p>
                             </div>
-                            <p id="message">{{message}}</p>
                         </div>
                     </div>
                 </div>
