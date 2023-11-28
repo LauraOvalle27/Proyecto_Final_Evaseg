@@ -58,6 +58,7 @@ export class FallosCoordinacionComponent implements OnInit {
   }
 
   apprenticeCard() {
+    this.structure = false;
     /** 
      * se limpia las listas en donde se guarda la información de los aprendices, pues en caso que 
      * la coordinación cambie de ficha luego de elegir por primera vez, los datos anteriores no se
@@ -97,6 +98,7 @@ export class FallosCoordinacionComponent implements OnInit {
   }
 
   updateFields() {
+    this.structure = false;
     /** 
      * se limpia los campos en donde se muestra la información de los aprendices, pues en caso que 
      * el instructor cambie de aprendiz luego de elegir por primera vez.
