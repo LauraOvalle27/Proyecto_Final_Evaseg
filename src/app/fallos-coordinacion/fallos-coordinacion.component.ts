@@ -81,7 +81,7 @@ export class FallosCoordinacionComponent implements OnInit {
           // aquí se guarda los ID´s de los aprendices de la ficha
           const listaIdsAprendiz = {
             idAprendiz: objeto.idAprendizFK,
-            idAprendizKF: objeto.id
+            idRelacionAprendizFicha: objeto.id
           }
           this.listaIdAprendiz.push(listaIdsAprendiz);          
         }
@@ -120,7 +120,8 @@ export class FallosCoordinacionComponent implements OnInit {
     });
     console.log('2', this.programaFormacionAprendiz)
     console.log('3', this.aprendizChoice.idAprendizFicha)
-    await this.http.get(`http://127.0.0.1:8000/evaseg_app/consulta-proceso-aprediz/?aprendiz_id=${this.aprendizChoice.listaIdsAprendiz.idAprendizKF}&proceso_activo=True&tipo_proceso=3`).subscribe((data: any) => {
+    console.log(this.aprendizChoice.idAprendizFicha.idRelacionAprendizFicha)
+    await this.http.get(`http://127.0.0.1:8000/evaseg_app/consulta-proceso-aprediz/?aprendiz_id=${this.aprendizChoice.idAprendizFicha.idRelacionAprendizFicha}&proceso_activo=True&tipo_proceso=3`).subscribe((data: any) => {
       this.procesosAprendiz = data;
       console.log('procesos', this.procesosAprendiz, data)
     });
