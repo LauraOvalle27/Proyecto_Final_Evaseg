@@ -150,14 +150,7 @@ export class ReportarInstructorComponent implements OnInit{
         this.formDataEnvio == null  ||
         this.formDataEnvio == undefined
     ){
-      this.message = '¡Todos los campos son obligarios!'
-      console.log(this.fichaChoice)
-      console.log(this.aprendizChoice, this.numeroDocumentoAprendiz, this.programaFormacionAprendiz, this.coordinacionAprendiz)
-      console.log(this.causasProceso)      
-      console.log('calif', this.calificacionFalta)
-      console.log(this.faltasManual)
-      console.log(this.formDataEnvio)
-      
+      this.message = '¡Todos los campos son obligarios!'      
     }
     else{
       this.message = '';
