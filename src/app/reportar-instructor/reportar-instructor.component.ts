@@ -178,9 +178,9 @@ export class ReportarInstructorComponent implements OnInit{
     
     const body = new FormData();
     body.append('fechaCreacionProceso', fechaEnvio);
-    body.append('calificaciónFalta', calificacionFalta);
-    body.append('proceso_activo', procesoActivo.toString())
+    body.append('proceso_activo', procesoActivo.toString());
     body.append('causasProceso', this.causasProceso);
+    body.append('recomendacionCalificacionGravedadProceso', calificacionFalta);
     body.append('RutaEvidenciasProceso', this.formDataEnvio);
     body.append('tipoProcesoFK', tipoProcesoEnvio.toString());
     body.append('idInstructorFK', this.numeroDocumentoInstructorEnvio.toString());
