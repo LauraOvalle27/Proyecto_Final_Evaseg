@@ -150,14 +150,7 @@ export class ReportarInstructorComponent implements OnInit{
         this.formDataEnvio == null  ||
         this.formDataEnvio == undefined
     ){
-      this.message = '¡Todos los campos son obligarios!'
-      console.log(this.fichaChoice)
-      console.log(this.aprendizChoice, this.numeroDocumentoAprendiz, this.programaFormacionAprendiz, this.coordinacionAprendiz)
-      console.log(this.causasProceso)      
-      console.log('calif', this.calificacionFalta)
-      console.log(this.faltasManual)
-      console.log(this.formDataEnvio)
-      
+      this.message = '¡Todos los campos son obligarios!'      
     }
     else{
       this.message = '';
@@ -185,9 +178,9 @@ export class ReportarInstructorComponent implements OnInit{
     
     const body = new FormData();
     body.append('fechaCreacionProceso', fechaEnvio);
-    body.append('calificaciónFalta', calificacionFalta);
-    body.append('proceso_activo', procesoActivo.toString())
+    body.append('proceso_activo', procesoActivo.toString());
     body.append('causasProceso', this.causasProceso);
+    body.append('recomendacionCalificacionGravedadProceso', calificacionFalta);
     body.append('RutaEvidenciasProceso', this.formDataEnvio);
     body.append('tipoProcesoFK', tipoProcesoEnvio.toString());
     body.append('idInstructorFK', this.numeroDocumentoInstructorEnvio.toString());

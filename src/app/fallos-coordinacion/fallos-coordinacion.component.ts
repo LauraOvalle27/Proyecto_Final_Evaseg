@@ -79,12 +79,16 @@ export class FallosCoordinacionComponent implements OnInit {
 
         for (const objeto of this.dataAprendizFicha) {
           // aquí se guarda los ID´s de los aprendices de la ficha
-          this.listaIdAprendiz.push(objeto.idAprendizFK);
+          const listaIdsAprendiz = {
+            idAprendiz: objeto.idAprendizFK,
+            idAprendizKF: objeto.id
+          }
+          this.listaIdAprendiz.push(listaIdsAprendiz);          
         }
 
         // con este ciclo buscamos, con ayuda de los ID's obtenidos en la lista anterior, se obtiene la información de los aprendices
         for (const objeto of this.listaIdAprendiz) {
-          this.http.get(`http://127.0.0.1:8000/evaseg_app/usuario/${objeto}`).subscribe((data: any) => {
+          this.http.get(`http://127.0.0.1:8000/evaseg_app/usuario/${objeto.idAprendiz}`).subscribe((data: any) => {
             const dataAprendiz = {
               idAprendizFicha: objeto,
               informacion: data
@@ -97,7 +101,7 @@ export class FallosCoordinacionComponent implements OnInit {
       });
   }
 
-  updateFields() {
+  async updateFields() {
     this.structure = false;
     /** 
      * se limpia los campos en donde se muestra la información de los aprendices, pues en caso que 
@@ -109,12 +113,16 @@ export class FallosCoordinacionComponent implements OnInit {
     this.numeroDocumentoAprendiz = this.aprendizChoice.informacion.numeroDocumento
 
     // de esta forma se obtiene la información correspondiente a la ficha.
-    this.http.get(`http://127.0.0.1:8000/evaseg_app/fichas/${this.fichaChoice.idFichaFK}`).subscribe((data: any) => {
+    console.log('1', this.fichaChoice.idFichaFK)
+    await this.http.get(`http://127.0.0.1:8000/evaseg_app/fichas/${this.fichaChoice.idFichaFK}`).subscribe((data: any) => {
       // se obtiene el programa de formación del aprendiz
       this.programaFormacionAprendiz = data.programaFormacion;
     });
-    this.http.get(`http://127.0.0.1:8000/evaseg_app/consulta-proceso-aprediz/?aprendiz_id=${this.aprendizChoice.idAprendizFicha}&proceso_activo=True&tipo_proceso=3`).subscribe((data: any) => {
+    console.log('2', this.programaFormacionAprendiz)
+    console.log('3', this.aprendizChoice.idAprendizFicha)
+    await this.http.get(`http://127.0.0.1:8000/evaseg_app/consulta-proceso-aprediz/?aprendiz_id=${this.aprendizChoice.listaIdsAprendiz.idAprendizKF}&proceso_activo=True&tipo_proceso=3`).subscribe((data: any) => {
       this.procesosAprendiz = data;
+      console.log('procesos', this.procesosAprendiz, data)
     });
   }
   async viewProceso() {
