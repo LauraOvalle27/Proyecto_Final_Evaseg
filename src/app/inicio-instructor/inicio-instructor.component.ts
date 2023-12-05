@@ -20,7 +20,6 @@ export class InicioInstructorComponent implements OnInit{
       this.infoPersona = JSON.parse(this.infoPersona);
       this.nombrePersona =  this.infoPersona.user.first_name + ' ' +  
                             this.infoPersona.user.last_name;
-      console.log(this.nombrePersona)
   }
 
   goTonextPage(url: string){

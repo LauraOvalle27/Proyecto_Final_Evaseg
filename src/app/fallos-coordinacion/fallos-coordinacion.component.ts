@@ -31,7 +31,7 @@ export class FallosCoordinacionComponent implements OnInit {
 
   structure = false;
   procesoChoice: any;
-  descargoProceso: any;
+  descargoProceso: any = {};
   message: string = "";
 
   decision: string = "";
@@ -97,7 +97,6 @@ export class FallosCoordinacionComponent implements OnInit {
             this.listaInformacionAprendiz.push(dataAprendiz);
           })
         }
-        console.log(this.listaInformacionAprendiz)
       });
   }
 
@@ -113,34 +112,30 @@ export class FallosCoordinacionComponent implements OnInit {
     this.numeroDocumentoAprendiz = this.aprendizChoice.informacion.numeroDocumento
 
     // de esta forma se obtiene la información correspondiente a la ficha.
-    console.log('1', this.fichaChoice.idFichaFK)
     await this.http.get(`http://127.0.0.1:8000/evaseg_app/fichas/${this.fichaChoice.idFichaFK}`).subscribe((data: any) => {
       // se obtiene el programa de formación del aprendiz
       this.programaFormacionAprendiz = data.programaFormacion;
     });
-    console.log('2', this.programaFormacionAprendiz)
-    console.log('3', this.aprendizChoice.idAprendizFicha)
-    console.log(this.aprendizChoice.idAprendizFicha.idRelacionAprendizFicha)
     await this.http.get(`http://127.0.0.1:8000/evaseg_app/consulta-proceso-aprediz/?aprendiz_id=${this.aprendizChoice.idAprendizFicha.idRelacionAprendizFicha}&proceso_activo=True&tipo_proceso=3`).subscribe((data: any) => {
       this.procesosAprendiz = data;
-      console.log('procesos', this.procesosAprendiz, data)
     });
   }
   async viewProceso() {
     if (this.procesoChoice != 'ID de Procesos Activos...') {
-      const data: any = await this.http.get(`http://127.0.0.1:8000/evaseg_app/consulta-descargo-idProceso/?id_proceso=${this.procesoChoice.id}`).toPromise();
-      if (Array.isArray(data) && data.length === 0) {
+      const data: any = await this.http.get(`http://127.0.0.1:8000/evaseg_app/consulta-descargo-idProceso/?id_proceso=${this.procesoChoice.id}`).toPromise();  
+      if (Array.isArray(data) && data.length > 0) {
+        this.descargoProceso = data[0];
+      } else {
         this.descargoProceso.rutaSoporteDescargo = "Sin Ruta"
         this.descargoProceso.fechaEnvioDescargos = "No enviado"
         this.descargoProceso.decargoProceso = "No enviado"
-      } else {
-        this.descargoProceso = data[0];
-      }
+      }  
       this.structure = true;
     } else {
       this.structure = false;
     }
   }
+  
   // Es esta función se trae los documentos necesarios para soportar el proceso.
   onFileSelected(event: any): void {
     const file: File = event.target.files[0];
@@ -177,7 +172,7 @@ export class FallosCoordinacionComponent implements OnInit {
     body.append('idProcesoFK', this.procesoChoice.id)
 
     const data: any = await this.http.get(`http://127.0.0.1:8000/evaseg_app/consulta-detalleProceso-idProceso/?id_proceso=${this.procesoChoice.id}`).toPromise();
-    console.log("este id", data[0].id)
+
 
     const headers = new HttpHeaders();
     // Configura el tipo de contenido como "multipart/form-data"
@@ -213,7 +208,6 @@ export class FallosCoordinacionComponent implements OnInit {
     const minutos = ('0' + fecha.getMinutes()).slice(-2);
     const segundos = ('0' + fecha.getSeconds()).slice(-2);
     const formatoFechaHora = `${año}-${mes}-${dia}T${horas}:${minutos}:${segundos}Z`;
-    console.log(formatoFechaHora);
     return formatoFechaHora;
 
   }

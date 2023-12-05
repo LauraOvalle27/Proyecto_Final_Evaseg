@@ -207,7 +207,6 @@ export class ReportarInstructorComponent implements OnInit{
       },
       error => {
         // Manejor de errores:
-        console.log('Error:', error);
       }
     );   
   }  

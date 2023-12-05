@@ -130,13 +130,11 @@ export class LlamadoAtencionInstructorComponent implements OnInit {
   }
 
   twoprocesses(){
-    console.log('holaaa')
     // Se trae la información de la relación entre el Aprediz y la Ficha a la que pertenece
     this.http.get(`http://127.0.0.1:8000/evaseg_app/consulta-aprendiz-ficha/?idAprendizFK=${this.aprendizChoice.id}`).subscribe((data: any) =>{
       this.validatedata = data[0];
       this.http.get(`http://127.0.0.1:8000/evaseg_app/consulta-proceso-aprediz/?aprendiz_id=${this.validatedata.id}`).subscribe((data: any)=>{
         this.historialProcesos = data;
-        console.log(this.historialProcesos.length);
         if(this.historialProcesos.length >= 2){
           Swal.fire({
             title: "Desea Reportar al Aprendiz al CES",
@@ -230,7 +228,6 @@ export class LlamadoAtencionInstructorComponent implements OnInit {
     this.http.post('http://127.0.0.1:8000/evaseg_app/procesos/', body, { headers: headers }).subscribe(
       response => {
         // Manejo de la respuesta exitosa:
-        console.log('Respuesta:', response);
         Swal.fire({
           title: "¡Muy bien!",
           text: "El llamado de atención ha sido enviado correctamente!",
@@ -245,7 +242,7 @@ export class LlamadoAtencionInstructorComponent implements OnInit {
       },
       error => {
         // Manejor de errores:
-        console.log('Error:', error);
+        this.message = "Algo salió mal. Comunícate con el soporte."
       }
     );   
   }  

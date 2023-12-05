@@ -74,7 +74,6 @@ export class ConsultarHistorialComponent implements OnInit{
     this.numeroDocumentoAprendiz = '';
     this.programaFormacionAprendiz = '';
     this.coordinacionAprendiz = '';
-    console.log(this.fichaChoice)
 
     // primero se la lista de ID's de usuarios que son aprendices de la ficha elegida
     this.http.get(`http://127.0.0.1:8000/evaseg_app/consulta-aprendiz-ficha/?idFichaFK=${this.fichaChoice.idFichaFK}`).subscribe(
@@ -142,7 +141,6 @@ export class ConsultarHistorialComponent implements OnInit{
   getProcesos(){
     this.http.get(`http://127.0.0.1:8000/evaseg_app/consulta-proceso-aprediz/?aprendiz_id=${this.validatedata.id}`).subscribe((data: any)=>{
       this.historialProcesos = data;
-      console.log(this.historialProcesos)
     })
   }
   
