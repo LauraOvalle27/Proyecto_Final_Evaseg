@@ -148,15 +148,34 @@ nav ul li a {
     max-width: 1000px;
 }
 
+h3{
+    text-align: center;
+}
+
+#titulo{
+    margin: 30px;
+}
  
+.card{
+    background-color: rgb(240, 240, 240);
+    border: none;
+}
+
+.citar{
+    margin: 40px;
+}
+
+#citar{
+    text-align: center;
+}
+
 .title-call{
     text-align: center;
     margin-bottom: 30px;
 }
+
+
+
  
-#semicolumn{
-    background-color:  rgb(240, 240, 240);
-    padding: 40px;
-    border-radius: 20px;
-}
+
 

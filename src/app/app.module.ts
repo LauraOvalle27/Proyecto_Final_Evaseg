@@ -29,6 +29,7 @@ import { DescargosAprendizComponent } from './descargos-aprendiz/descargos-apren
 import { PerfilAprendizComponent } from './perfil-aprendiz/perfil-aprendiz.component';
 import { BandejaInstructorComponent } from './bandeja-instructor/bandeja-instructor.component';
 import { ReportarCoordinacionComponent } from './reportar-coordinacion/reportar-coordinacion.component';
+import { CitarComiteComponent } from './citar-comite/citar-comite.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ReportarCoordinacionComponent } from './reportar-coordinacion/reportar-
     DescargosAprendizComponent,
     PerfilAprendizComponent,
     BandejaInstructorComponent,
-    ReportarCoordinacionComponent
+    ReportarCoordinacionComponent,
+    CitarComiteComponent
   ],
   imports: [
     BrowserModule,

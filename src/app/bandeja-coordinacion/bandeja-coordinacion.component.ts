@@ -8,11 +8,22 @@ import { Router } from '@angular/router';
 })
 export class BandejaCoordinacionComponent {
 
+  isChecked: boolean = false;
+
   constructor(private router: Router){}
 
 
   goTonextPage(url: string){
     this.router.navigate([url])
+  }
+
+  citar(){
+    if(this.isChecked){
+      this.router.navigate(['/citarComite'])
+    }
+    else{
+      alert('No hay procesos seleccionados')
+    }
   }
   
 }

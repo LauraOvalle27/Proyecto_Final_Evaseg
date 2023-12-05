@@ -16,6 +16,7 @@ import { FelicitacionCoordinacionComponent } from './felicitacion-coordinacion/f
 import { ActasCoordinacionComponent } from './actas-coordinacion/actas-coordinacion.component';
 import { BandejaCoordinacionComponent } from './bandeja-coordinacion/bandeja-coordinacion.component';
 import { PerfilCoordinacionComponent } from './perfil-coordinacion/perfil-coordinacion.component';
+import { CitarComiteComponent } from './citar-comite/citar-comite.component';
 
 import { InicioAprendizComponent } from './inicio-aprendiz/inicio-aprendiz.component';
 import { MiHistorialComponent } from './mi-historial/MiHistorialComponent';
@@ -45,7 +46,8 @@ const routes: Routes = [
   { path: 'fallosCoordinacion', component: FallosCoordinacionComponent },
   { path: 'actasCoordinacion', component: ActasCoordinacionComponent },
   { path: 'bandejaCoordinacion', component: BandejaCoordinacionComponent }, 
-  { path: 'perfilCoordinacion', component: PerfilCoordinacionComponent } ,
+  { path: 'perfilCoordinacion', component: PerfilCoordinacionComponent },
+  { path: 'citarComite', component:CitarComiteComponent },
 
   { path: 'inicioAprendiz', component: InicioAprendizComponent },
   { path: 'miHistorial', component: MiHistorialComponent },
