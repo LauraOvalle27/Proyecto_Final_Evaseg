@@ -8,13 +8,14 @@ import { Router } from '@angular/router';
 })
 export class CitacionesAprendizComponent {
 
-  constructor(
-    private route: Router
-  ){}
+
+  constructor(private route: Router){}
 
   goTonextPage(url: string){
     this.route.navigate([url]);
   }
+
+  
 
  
 }
