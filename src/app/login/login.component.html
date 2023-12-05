@@ -16,8 +16,10 @@
                     <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password"
                         name="password">
                 </div>
+                <div id="error">
+                    {{message}}
+                </div>
                 <button type="submit" class="btn btn-login" (click)="validateUser()">Ingresar</button>
-                <br>
                 <div class="password">
                     <button class="recover" (click)="goToNextPage('/recoverPassword')">
                         ¿Olvidaste tu contraseña?
