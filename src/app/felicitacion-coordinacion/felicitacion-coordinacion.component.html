@@ -15,7 +15,8 @@
                 <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('llamadosCoordinacion')">
                         <i class="bi bi-exclamation-circle"></i> Llamado de atención
                     </button></li>
-                <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('reportarAprendizCoordinacion')">
+                <li><button type="submit" class="btn btn" id="icono"
+                        (click)="goTonextPage('reportarAprendizCoordinacion')">
                         <i class="bi bi-exclamation-circle"></i> Reportar aprendiz
                     </button></li>
                 <li><button type="submit" class="btn btn" id="icono" (click)="goTonextPage('felicitacionCoordinacion')">
@@ -46,7 +47,8 @@
                     <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('llamadosCoordinacion')">
                         <i class="bi bi-exclamation-circle"></i> Llamado de atención
                     </button>
-                    <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('reportarAprendizCoordinacion')">
+                    <button type="submit" class="btn btn" id="icono"
+                        (click)="goTonextPage('reportarAprendizCoordinacion')">
                         <i class="bi bi-flag"></i> Reportar aprendiz
                     </button>
                     <button type="submit" class="btn btn" id="icono" (click)="goTonextPage('felicitacionCoordinacion')">
@@ -72,41 +74,53 @@
                                 <div class="col-sm-6">
                                     <div class="mb-3">
                                         <label for="fichaAprendiz" class="form-label">Ficha</label>
-                                        <select class="form-select" id="fichaAprendiz" name="ficha-seleccionada">
+                                        <select class="form-select" id="fichaAprendiz" [(ngModel)]="fichaChoice"
+                                            name="ficha-seleccionada" (change)="apprenticeCard()">
                                             <option selected>Ficha...</option>
+                                            <option *ngFor="let item of dataFichas" [ngValue]="item">{{item.idFichaFK}}
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="mb-3">
                                         <label for="nameAprendiz" class="form-label">Nombre de aprendiz</label>
-                                        <select class="form-select" id="fichaAprendiz" name="aprendiz-seleccionado">
+                                        <select class="form-select" id="fichaAprendiz" [(ngModel)]="aprendizChoice"
+                                            name="aprendiz-seleccionado" (change)="updateFields()">
                                             <option selected>Aprendiz..</option>
+                                            <option *ngFor="let item of listaInformacionAprendiz" [ngValue]="item">
+                                                {{item.first_name}} {{item.second_name}} {{item.last_name}}
+                                                {{item.second_last_name}}
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="mb-3">
                                         <label for="IdAprendiz" class="form-label">Número de documento</label>
-                                        <input type="text" class="form-control" id="IdAprendiz">
+                                        <input type="text" class="form-control" id="IdAprendiz"
+                                            [(ngModel)]="numeroDocumentoAprendiz" name="numero-documento">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="mb-3">
                                         <label for="programAprendiz" class="form-label">Programa de formación</label>
-                                        <input type="text" class="form-control" id="programAprendiz">
+                                        <input type="text" class="form-control" id="programAprendiz"
+                                            [(ngModel)]="programaFormacionAprendiz" name="programa-formacion">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="mb-3">
                                         <label for="causesAprendiz" class="form-label">Causas de felicitación</label>
-                                        <textarea class="form-control" id="causes"></textarea>
+                                        <textarea class="form-control" id="causes" [(ngModel)]="causasProceso"
+                                            name="causas-llamado"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="mb-3">
-                                        <label for="branchAprendiz" class="form-label">Sede</label>
-                                        <input type="text" class="form-control" id="branchAprendiz">
+                                        <label for="branchAprendiz" class="form-label">Coordinación</label>
+                                        <input type="text" class="form-control" id="branchAprendiz"
+                                            [(ngModel)]="coordinacionAprendiz" name="coordinacion-aprendiz">
                                     </div>
                                 </div>
 
@@ -115,11 +129,11 @@
                                     <div class="input-group">
                                         <input type="file" enctype="multipart/form-data" class="form-control"
                                             id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
-                                            aria-label="Upload">
+                                            aria-label="Upload" (change)="onFileSelected($event)">
                                     </div>
-
                                     <div class="mb-3 text-center">
-                                        <button type="submit" class="btn btn-submit">Enviar</button>
+                                        <button type="submit" class="btn btn-submit" (click)="validateFields()">Enviar</button>
+                                        <p id="message">{{message}}</p>
                                     </div>
                                 </div>
                             </div>
