@@ -70,3 +70,7 @@ input{
     border: 0px;
     background-color: transparent;
 }
+#error{
+    color: red;
+    text-align: center;
+}

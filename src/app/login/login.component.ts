@@ -13,41 +13,59 @@ export class LoginComponent implements OnInit {
   docNumber: string = '';
   password: string = '';
   data: any;
-  message : string = '';
+  message: string = '';
 
   constructor(
     private router: Router,
     private http: HttpClient,
-    ){}
+  ) { }
 
   ngOnInit() {
   }
 
-  
-  goToNextPage(url: string){
+
+  goToNextPage(url: string) {
     this.router.navigate([url])
   }
 
-  validateUser(){
+  validateUser() {
     const body = {
       username: this.docNumber,
       password: this.password
-    }
-    this.http.post('http://127.0.0.1:8000/evaseg_app/login/', body).subscribe((data: any) =>{
-      this.data = data;
-      if(this.data.user.numeroDocumento == this.docNumber){
-        if(this.data.user.idRolFK == 2){
-          this.goToNextPage('/inicioAprendiz')
-        }else if(this.data.user.idRolFK == 3){
-          this.goToNextPage('/inicioInstructor')          
-        }else if(this.data.user.idRolFK == 4){
-          this.goToNextPage('/inicioCoordinacion')
+    };
+  
+    this.http.post('http://127.0.0.1:8000/evaseg_app/login/', body).subscribe(
+      (response: any) => {
+        this.data = response;
+        if (this.data.user.numeroDocumento === this.docNumber) {
+          const roleId = this.data.user.idRolFK;
+
+          switch (roleId) {
+            case 2:
+              this.goToNextPage('/inicioAprendiz');
+              break;
+            case 3:
+              this.goToNextPage('/inicioInstructor');
+              break;
+            case 4:
+              this.goToNextPage('/inicioCoordinacion');
+              break;
+            default:
+              // Manejar otros roles si es necesario
+              break;
+          }  
+          localStorage.setItem('infoPersona', JSON.stringify(this.data));
         }
-        localStorage.setItem('infoPersona', JSON.stringify(this.data))
+      },
+      (error: any) => {
+        if (error.status === 400) {
+          this.message = 'Credenciales incorrectas';
+        } else {
+          this.message = 'Error en el servidor';
+        }
+        this.password = '';
       }
-      else{
-        this.message = 'credenciales incorrectas';        
-      }
-    });  
+    );
   }
+
 }
