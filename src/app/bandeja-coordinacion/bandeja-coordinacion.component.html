@@ -72,20 +72,45 @@
     <div class="row" id="titulo">
         <h3>Bandeja de entrada</h3>
     </div>
-    <div class="citar"><button type="submit" class="btn btn" id="citar" (click)="citar()"> Citar a comité</button></div>
+    <div class="citaciones">
+        <div class="card" id="date-meet">
+            <div class="card-body">
+                <div class="card-title">
+                    Proximo comite 
+                </div>
+            </div>
+        </div>
+        <div class="citar"><button type="submit" class="btn btn-submit" id="citar" (click)="citar()"> Citar a comité</button>
+            <div id="error">
+                {{message}}
+            </div>
+        </div>
+        <div class="citar"><button type="submit" class="btn btn-submit" id="citar" (click)="generarActas()">Generar actas</button>
+            <div id="error">
+                {{messageActas}}
+            </div>
+        </div>
+    </div>
     <div class="col-sm-12">
-        <div class="card" id="process">
+        <div class="card" id="process" >
             <div class="card-body">
                 <div class="form-check">
-                    <input class="form-check-input align-middle" type="checkbox" value="" [(ngModel)]="isChecked" id="flexCheckDefault">
+                    <input class="form-check-input align-middle" type="checkbox" value="" [(ngModel)]="isChecked"
+                        id="flexCheckDefault">
                     <label class="form-check-label" for="flexCheckDefault" [class.checked]="isChecked">
                         <div class="row">
-                            <div class="card-title">Id proceso | Nombre | Ficha |</div> 
-                            <h6>Fecha creación</h6>
+                            <div class="card-title" id="details">Id proceso | Nombre | Ficha |</div>
                         </div>
-                    </label> 
+                    </label>
+                    <div class="date">
+                        <i class="bi bi-eye" (click)="toggleDetails()"></i>
+                        Fecha creacion 
+                    </div>
+                </div>
+                <div class="additional-content" [ngClass]="{'expanded': moreDetails}">
+                    <!-- detalles -->
                 </div>
             </div>
         </div>
     </div>
-</div>
+

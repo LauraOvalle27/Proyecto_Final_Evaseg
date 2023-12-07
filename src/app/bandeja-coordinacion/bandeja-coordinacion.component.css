@@ -124,6 +124,106 @@ nav ul li a {
     margin-right: 8px; /* Ajusta la cantidad de espacio entre el icono y el texto */
 }
  
+
+
+#column2{
+    padding: 40px;
+    margin-left: 450px;
+    max-width: 1000px;
+}
+
+h3{
+    text-align: center;
+}
+
+.form-check{
+    display: flex;
+    align-items: center;
+}
+
+#flexCheckDefault{
+    position: static;
+    width: 30px;
+    height: 30px;
+    background-color: #6d9d6d;
+    border: none;
+    justify-content: end;
+}
+
+#titulo{
+    margin: 30px;
+}
+ 
+.card{
+    background-color: rgb(240, 240, 240);
+    border: none;
+}
+
+.expanded {
+    height: 200px; 
+}
+
+.card-title {
+    text-align: center;
+}
+
+
+.citaciones{
+    display: flex;
+}
+
+.citar{
+    margin: 40px;
+}
+
+#citar{
+    text-align: center;
+}
+
+.title-call{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#date-meet{
+    height: 50px;
+    margin-top: 50px;
+    background-color: rgb(222, 221, 221);
+    width: 250px;
+    margin-right: 20px;
+}
+
+#details{
+    margin-left: 20px;
+    top: 50%;
+}
+
+.date{
+    position: absolute;
+    right: 15px;
+}
+
+#error{
+    text-align: center;
+    color: red;
+    margin-top: 5px;
+}
+
+.btn-submit{
+    background: #6d9d6d;
+    color: white;
+    margin-top: 10px;
+    text-align: center;
+    width: 250px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.bi-eye{
+    margin-right: 10px;
+    color: #6d9d6d;
+}
+
 @media (min-width: 1600px) {
     #column2 {
         margin-left: 30%;
@@ -142,40 +242,5 @@ nav ul li a {
 }
  
 
-#column2{
-    padding: 40px;
-    margin-left: 450px;
-    max-width: 1000px;
-}
-
-h3{
-    text-align: center;
-}
-
-#titulo{
-    margin: 30px;
-}
- 
-.card{
-    background-color: rgb(240, 240, 240);
-    border: none;
-}
-
-.citar{
-    margin: 40px;
-}
-
-#citar{
-    text-align: center;
-}
-
-.title-call{
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-
-
- 
 
 
