@@ -62,25 +62,33 @@
                     <h3>Descargos</h3>
                     <div class="row">
                         <div class="col-12">
-                            <div class="container">
-                                <div class="nameAprendiz">
-                                    Detalles comité
-                                </div>
+                            <div class="mb-3">
+                                <label for="nameAprendiz" class="form-label">Procesos Activos</label>
+                                <select class="form-select" id="procesosActivos" [(ngModel)]="procesoChoice"
+                                    name="proceso-seleccionado" (change)="viewButton()">
+                                    <option selected>ID de Procesos Activos...</option>
+                                    <option *ngFor="let item of procesos" [ngValue]="item">
+                                        {{item.id}}
+                                    </option>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="causesAprendiz" class="form-label">Escribir descargos</label>
-                                <textarea class="form-control" id="causes"></textarea>
+                                <textarea class="form-control" id="causes" [(ngModel)]="descargos"
+                                name="descargos-aprendiz"></textarea>
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <label for="branchAprendiz" class="form-label">Seleccionar Documentos</label>
                             <div class="input-group">
-                                <input type="file" enctype="multipart/form-data" class="form-control"
-                                    id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                <input type="file" class="form-control" id="inputGroupFile04"
+                                    aria-describedby="inputGroupFileAddon04" aria-label="Upload"
+                                    (change)="onFileSelected($event)">
                             </div>
                         </div>
                         <div class="mb-3 text-center">
-                            <button type="submit" class="btn btn-submit">Enviar</button>
+                            <button type="submit" class="btn btn-submit" (click)="validateFields()" *ngIf="structure" >Enviar</button>
+                            <p id="message">{{message}}</p>
                         </div>
                     </div>
                 </div>

@@ -49,6 +49,10 @@ nav ul li a {
     display: none;
 }
 
+#message{
+    color: red;
+}
+
 @media (max-width: 1180px){
 
     .checkbtn{

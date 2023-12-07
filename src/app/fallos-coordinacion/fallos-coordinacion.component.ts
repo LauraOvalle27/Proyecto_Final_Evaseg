@@ -39,7 +39,7 @@ export class FallosCoordinacionComponent implements OnInit {
   formDataEnvio: any;
 
   ngOnInit() {
-    // Sse obtiene la información del instructor del localStorage.
+    // Se obtiene la información del instructor del localStorage.
     this.infoPersona = localStorage.getItem('infoPersona');
     this.infoPersona = JSON.parse(this.infoPersona);
 
@@ -209,6 +209,5 @@ export class FallosCoordinacionComponent implements OnInit {
     const segundos = ('0' + fecha.getSeconds()).slice(-2);
     const formatoFechaHora = `${año}-${mes}-${dia}T${horas}:${minutos}:${segundos}Z`;
     return formatoFechaHora;
-
   }
 }
