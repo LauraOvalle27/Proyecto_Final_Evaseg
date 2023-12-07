@@ -9,6 +9,10 @@ import { Router } from '@angular/router';
 export class BandejaCoordinacionComponent {
 
   isChecked: boolean = false;
+  message: string = '';
+  messageActas: string = '';
+
+  moreDetails= true;
 
   constructor(private router: Router){}
 
@@ -22,8 +26,21 @@ export class BandejaCoordinacionComponent {
       this.router.navigate(['/citarComite'])
     }
     else{
-      alert('No hay procesos seleccionados')
+      this.message ='No hay procesos seleccionados'
     }
   }
   
+  generarActas(){
+    if(this.isChecked){
+      this.router.navigate(['/actasCoordinacion'])
+    }
+    else{
+      this.messageActas ='No hay procesos seleccionados'
+    }
+  }
+
+  toggleDetails() {
+    this.moreDetails = !this.moreDetails;
+  }
+
 }

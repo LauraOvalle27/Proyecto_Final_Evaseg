@@ -190,7 +190,7 @@ export class FelicitacionCoordinacionComponent implements OnInit{
         // Manejo de la respuesta exitosa:
         Swal.fire({
           title: "¡Muy bien!",
-          text: "El llamado de atención ha sido enviado correctamente!",
+          text: "La felicitación ha sido enviado correctamente!",
           icon: "success",
           confirmButtonText: "OK",
           confirmButtonColor: "#63a154",

@@ -1,0 +1,68 @@
+#column{
+    padding: 40px;
+    margin-left: 20%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#semicolumn{
+    background-color:  rgb(240, 240, 240);
+    padding: 40px;
+    border-radius: 20px;
+}
+
+#semicolumn h3 {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.container{
+    margin-bottom: 20px;
+    padding: 30px;
+    text-align: center;
+    font-size: 20px;
+}
+
+#date-comite{
+    width: 600px;
+    padding: 3px;
+    border: none;
+}
+
+.form-label{
+    margin: 20px;
+}
+
+.form-control{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.btn-submit{
+    background: #6d9d6d;
+    color: white;
+    margin-top: 70px;
+    text-align: center;
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+}
+
+
+
+@media (max-width: 1187px) {
+    
+    #column {
+        margin: 0 auto;
+        margin-top: 100px;
+    }
+    #date-comite{
+        width: auto;
+    }
+    .btn-submit{
+        width: auto;
+    }
+    
+
+
+}
