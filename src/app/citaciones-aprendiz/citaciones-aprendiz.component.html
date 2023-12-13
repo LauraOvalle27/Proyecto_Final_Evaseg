@@ -64,17 +64,16 @@
                 <div class="col-sm-12" id="semicolumn">
                     <h3>Proxima citación</h3>
                     <div class="row">
-                        <div class="card">
+                        <div class="card" *ngFor="let item of citaciones" >
                             <div class="card-header">
-                                <h5 class="card-title">Detalles</h5>
+                                <h5 class="card-title">Detalles: </h5>
                             </div>
                             <div class="card-body">
-                                <p class="card-text">Fecha:</p>
+                                <p class="card-text">Fecha: {{item.fechaCitacion}}</p>
                                 <p></p>
-                                <p class="card-text">Hora:</p>
+                                <p class="card-text">Hora: {{item.horaCitacion}}</p>
                                 <p></p>
-                                <p> lugar: </p>
-                                <p> Motivo: </p>
+                                <p> lugar: {{item.lugarCitacion}}</p>
                             </div>
                         </div>
                     </div>

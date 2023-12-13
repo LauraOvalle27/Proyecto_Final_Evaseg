@@ -20,6 +20,7 @@ interface Proceso {
   ficha: string;
   nombreAprendiz: string;
   idAprendiz: string;
+  emailAprendiz: string;
   documentoAprendiz: string;
   nombreInstructor: string;
   idInstructor: string;
@@ -69,6 +70,7 @@ export class BandejaCoordinacionComponent {
       process.idAprendiz = data.idAprendizFK
       this.http.get(`http://127.0.0.1:8000/evaseg_app/usuario/${process.idAprendiz}`).subscribe((data: any) => {
         process.documentoAprendiz = data.numeroDocumento
+        process.emailAprendiz = data.email
         process.nombreAprendiz = data.first_name + " " + data.second_name + " " + data.last_name + " " + data.second_last_name
       }
       );

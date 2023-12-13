@@ -3,11 +3,37 @@ import { Component, OnInit, NgModule } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+interface Proceso {
+  id: number;
+  fechaCreacionProceso: string;
+  proceso_activo: boolean;
+  proceso_citado: boolean;
+  causasProceso: string;
+  recomendacionCalificacionGravedadProceso: string;
+  RutaEvidenciasProceso: string;
+  tipoProcesoFK: number;
+  idInstructorFK: number;
+  idAprendizFK: number;
+  view: boolean;
+  selected: boolean;
+  // Para los detalles
+  ficha: string;
+  nombreAprendiz: string;
+  idAprendiz: string;
+  emailAprendiz: string;
+  documentoAprendiz: string;
+  nombreInstructor: string;
+  idInstructor: string;
+  documentoInstructor: string;
+}
+
 @Component({
   selector: 'app-citar-comite',
   templateUrl: './citar-comite.component.html',
   styleUrls: ['./citar-comite.component.css']
 })
+
+
 export class CitarComiteComponent implements OnInit {
 
   constructor(
@@ -48,7 +74,7 @@ export class CitarComiteComponent implements OnInit {
       this.sendAppoiment()
     }
   }
-  sendAppoiment() {
+  async sendAppoiment() {
     for (const item of this.procesos) {
       const body = new FormData();
       const fechaHoraCitacion = `${this.fecha}T${this.hora}Z`
@@ -69,7 +95,7 @@ export class CitarComiteComponent implements OnInit {
         );
 
       const body2 = new FormData();
-      body2.append('proceso_citado', 'True');
+      body2.append('proceso_citado', 'False');
       this.http.patch(`http://127.0.0.1:8000/evaseg_app/actualizar-estado-cita/?id_proceso=${item.id}`, body2)
         .subscribe(
           response => {
@@ -79,6 +105,64 @@ export class CitarComiteComponent implements OnInit {
             console.log(error);
           }
         );
+
+      const process: Proceso = {
+        id: 0,
+        fechaCreacionProceso: '',
+        proceso_activo: false,
+        proceso_citado: false,
+        causasProceso: '',
+        recomendacionCalificacionGravedadProceso: '',
+        RutaEvidenciasProceso: '',
+        tipoProcesoFK: 0,
+        idInstructorFK: 0,
+        idAprendizFK: 0,
+        view: false,
+        selected: false,
+        ficha: '',
+        nombreAprendiz: '',
+        idAprendiz: '',
+        emailAprendiz: '',
+        documentoAprendiz: '',
+        nombreInstructor: '',
+        idInstructor: '',
+        documentoInstructor: '',
+      };
+      await this.http.get(`http://127.0.0.1:8000/evaseg_app/aprendices-ficha/${item.idAprendizFK}`).subscribe((data: any) => {
+        process.ficha = data.idFichaFK
+        process.idAprendiz = data.idAprendizFK
+        this.http.get(`http://127.0.0.1:8000/evaseg_app/usuario/${process.idAprendiz}`).subscribe((data: any) => {
+          process.documentoAprendiz = data.numeroDocumento
+          process.emailAprendiz = data.email
+          process.nombreAprendiz = data.first_name + " " + data.second_name + " " + data.last_name + " " + data.second_last_name
+        }
+        );
+      }
+      );
+      await this.http.get(`http://127.0.0.1:8000/evaseg_app/instructores-ficha/${item.idInstructorFK}`).subscribe((data: any) => {
+        process.idInstructor = data.idInstructorFK
+        this.http.get(`http://127.0.0.1:8000/evaseg_app/usuario/${process.idInstructor}`).subscribe((data: any) => {
+          process.documentoInstructor = data.numeroDocumento
+          process.nombreInstructor = data.first_name + " " + data.second_name + " " + data.last_name + " " + data.second_last_name
+        }
+        );
+      }
+      );
+      console.log('process', process)
+      const body3 = new FormData();
+      body3.append('nombre_aprendiz', process.nombreAprendiz);
+      body3.append('nombre_instructor', process.nombreInstructor);
+      body3.append('causas', process.causasProceso);
+      console.log('email', process.emailAprendiz)
+      console.log('process', process)
+      await this.http.post(`http://127.0.0.1:8000/evaseg_app/send-email/?correo_destino=${process.emailAprendiz}`, body3).subscribe(
+        response => {
+          console.log('ok, enviado', response)
+        },
+        error => {
+          console.log(error)
+        }
+      )
     }
     localStorage.removeItem('procesosSeleccionados')
     Swal.fire({

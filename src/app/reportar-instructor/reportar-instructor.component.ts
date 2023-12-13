@@ -48,7 +48,7 @@ export class ReportarInstructorComponent implements OnInit{
     calificacionFalta: string = '';
 
   ngOnInit() {
-    // Sse obtiene la información del instructor del localStorage.
+    // Se obtiene la información del instructor del localStorage.
     this.infoPersona = localStorage.getItem('infoPersona');
     this.infoPersona = JSON.parse(this.infoPersona);
 
