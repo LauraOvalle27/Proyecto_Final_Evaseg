@@ -116,7 +116,7 @@ export class FallosCoordinacionComponent implements OnInit {
       // se obtiene el programa de formación del aprendiz
       this.programaFormacionAprendiz = data.programaFormacion;
     });
-    await this.http.get(`http://127.0.0.1:8000/evaseg_app/consulta-proceso-aprediz/?aprendiz_id=${this.aprendizChoice.idAprendizFicha.idRelacionAprendizFicha}&proceso_activo=True&tipo_proceso=3`).subscribe((data: any) => {
+    await this.http.get(`http://127.0.0.1:8000/evaseg_app/consulta-proceso-aprediz/?aprendiz_id=${this.aprendizChoice.idAprendizFicha.idRelacionAprendizFicha}&proceso_activo=True&tipo_proceso=2,3`).subscribe((data: any) => {
       this.procesosAprendiz = data;
     });
   }
@@ -163,6 +163,7 @@ export class FallosCoordinacionComponent implements OnInit {
   }
   async sendInformation() {
     // Se obtiene toda la información necesaria para realizar un método post.
+    console.log(this.procesoChoice)
     const body = new FormData();
     body.append('calificacionGravedadProceso', this.calificacionFalta);
     body.append('fechaHoraFinProceso', this.currentDate());
@@ -171,15 +172,17 @@ export class FallosCoordinacionComponent implements OnInit {
     body.append('decisionProceso', this.decision);
     body.append('idProcesoFK', this.procesoChoice.id)
 
-    const data: any = await this.http.get(`http://127.0.0.1:8000/evaseg_app/consulta-detalleProceso-idProceso/?id_proceso=${this.procesoChoice.id}`).toPromise();
-
 
     const headers = new HttpHeaders();
     // Configura el tipo de contenido como "multipart/form-data"
     headers.set('Content-Type', 'multipart/form-data');
     //Se ejecuta el método put junto con el cuerpo que se obtuvo anteriormente.
-    this.http.put(`http://127.0.0.1:8000/evaseg_app/detalleProceso/${data[0].id}/`, body, { headers: headers }).subscribe(
+    this.http.post(`http://127.0.0.1:8000/evaseg_app/detalleProceso/`, body, { headers: headers }).subscribe(
       response => {
+        // Proceso de activo a no activo        
+        const body2 = new FormData();
+        body2.append('proceso_activo', 'False');
+        this.http.patch(`http://127.0.0.1:8000/evaseg_app/actualizar-estado-activo/?id_proceso=${this.procesoChoice.id}`, body2)
         // Manejo de la respuesta exitosa:
         Swal.fire({
           title: "¡Muy bien!",

@@ -6,14 +6,14 @@
                 <label class="form-label">
                     Seleccione la fecha de la citación
                 </label>
-                   <input type="date" id="date-comite" name="date-comite">
+                   <input type="date" id="date-comite" [(ngModel)]="fecha" name="date-comite">
                 <label class="form-label">
                     Seleccione la hora del comité  
                 </label>
-                <input type="time" id="date-comite" name="date-comite">
+                <input type="time" id="date-comite" [(ngModel)]="hora" name="date-comite">                
                 <label for="branchAprendiz" class="form-label">Seleccione la sede donde se realizará el comité</label>
-                <input type="text" class="form-control" id="branchAprendiz" name="coordinacion-aprendiz">
-                <button type="submit" class="btn btn-submit">Enviar Citación</button>
+                <input type="text" class="form-control" id="branchAprendiz" [(ngModel)]="sede" name="coordinacion-aprendiz">
+                <button type="submit" class="btn btn-submit" (click)="validateFiels()">Enviar Citación</button>
             </div>
         </div>
     </div>

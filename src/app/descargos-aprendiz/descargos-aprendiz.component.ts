@@ -132,5 +132,4 @@ export class DescargosAprendizComponent implements OnInit {
     const formatoFechaHora = `${año}-${mes}-${dia}T${horas}:${minutos}:${segundos}Z`;
     return formatoFechaHora;
   }
-
 }

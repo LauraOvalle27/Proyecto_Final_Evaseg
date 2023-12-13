@@ -76,41 +76,63 @@
         <div class="card" id="date-meet">
             <div class="card-body">
                 <div class="card-title">
-                    Proximo comite 
+                    Proximo comite
                 </div>
             </div>
         </div>
-        <div class="citar"><button type="submit" class="btn btn-submit" id="citar" (click)="citar()"> Citar a comité</button>
+        <div class="citar"><button type="submit" class="btn btn-submit" id="citar" (click)="processSelectedItems()">Citar a
+                comité</button>
             <div id="error">
                 {{message}}
             </div>
         </div>
-        <div class="citar"><button type="submit" class="btn btn-submit" id="citar" (click)="generarActas()">Generar actas</button>
+        <div class="citar"><button type="submit" class="btn btn-submit" id="citar" (click)="generarActas()">Generar
+                actas</button>
             <div id="error">
                 {{messageActas}}
             </div>
         </div>
     </div>
     <div class="col-sm-12">
-        <div class="card" id="process" >
+        <div class="card" id="process">
             <div class="card-body">
                 <div class="form-check">
-                    <input class="form-check-input align-middle" type="checkbox" value="" [(ngModel)]="isChecked"
+                    <div class="row">
+                        <div class="card-title" id="details">Id proceso | Calificación Falta | Tipo de Proceso |</div>
+                    </div>
+                    <div class="date">
+                        <i class="bi bi-eye"></i>
+                        Fecha de Creación
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" id="process" *ngFor="let item of procesosNoCitados">
+            <div class="card-body">
+                <div class="form-check">
+                    <input class="form-check-input align-middle" type="checkbox" value="" [(ngModel)]="item.selected"
                         id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault" [class.checked]="isChecked">
+                    <label class="form-check-label">
                         <div class="row">
-                            <div class="card-title" id="details">Id proceso | Nombre | Ficha |</div>
+                            <div class="card-title" id="details"> {{item.id}} |
+                                {{item.recomendacionCalificacionGravedadProceso}} |
+                                {{item.tipoProcesoFK === 2 ? 'Felicitación' :
+                                'Reporte a comité de evaluación y seguimiento'}}</div>
                         </div>
                     </label>
                     <div class="date">
-                        <i class="bi bi-eye" (click)="toggleDetails()"></i>
-                        Fecha creacion 
+                        <i class="bi bi-eye" (click)="toggleDetails(item)"></i>
+                        {{item.fechaCreacionProceso}}
                     </div>
                 </div>
-                <div class="additional-content" [ngClass]="{'expanded': moreDetails}">
-                    <!-- detalles -->
+                <div class="additional-content" *ngIf="item.view">
+                    <p>causas: {{item.causasProceso}}</p>
+                    <p>soporte: {{item.RutaEvidenciasProceso}}</p>
+                    <p>nombre aprendiz: {{item.nombreAprendiz}}</p>
+                    <p>número de documento aprendiz: {{item.documentoAprendiz}}</p>
+                    <p>nombre instructor: {{item.nombreInstructor}}</p>
+                    <p>número de documento instructor: {{item.documentoInstructor}}</p>
                 </div>
             </div>
         </div>
     </div>
-

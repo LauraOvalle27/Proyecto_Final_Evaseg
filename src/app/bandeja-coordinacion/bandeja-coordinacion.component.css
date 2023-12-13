@@ -157,6 +157,8 @@ h3{
 .card{
     background-color: rgb(240, 240, 240);
     border: none;
+    margin-bottom:4px;
+
 }
 
 .expanded {
