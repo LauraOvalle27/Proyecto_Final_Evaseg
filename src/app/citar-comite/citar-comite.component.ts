@@ -95,7 +95,7 @@ export class CitarComiteComponent implements OnInit {
         );
 
       const body2 = new FormData();
-      body2.append('proceso_citado', 'False');
+      body2.append('proceso_citado', 'True');
       this.http.patch(`http://127.0.0.1:8000/evaseg_app/actualizar-estado-cita/?id_proceso=${item.id}`, body2)
         .subscribe(
           response => {
@@ -111,7 +111,7 @@ export class CitarComiteComponent implements OnInit {
         fechaCreacionProceso: '',
         proceso_activo: false,
         proceso_citado: false,
-        causasProceso: '',
+        causasProceso: item.causasProceso,
         recomendacionCalificacionGravedadProceso: '',
         RutaEvidenciasProceso: '',
         tipoProcesoFK: 0,
@@ -144,25 +144,11 @@ export class CitarComiteComponent implements OnInit {
         this.http.get(`http://127.0.0.1:8000/evaseg_app/usuario/${process.idInstructor}`).subscribe((data: any) => {
           process.documentoInstructor = data.numeroDocumento
           process.nombreInstructor = data.first_name + " " + data.second_name + " " + data.last_name + " " + data.second_last_name
+          this.sendEmail(process)
         }
         );
       }
       );
-      console.log('process', process)
-      const body3 = new FormData();
-      body3.append('nombre_aprendiz', process.nombreAprendiz);
-      body3.append('nombre_instructor', process.nombreInstructor);
-      body3.append('causas', process.causasProceso);
-      console.log('email', process.emailAprendiz)
-      console.log('process', process)
-      await this.http.post(`http://127.0.0.1:8000/evaseg_app/send-email/?correo_destino=${process.emailAprendiz}`, body3).subscribe(
-        response => {
-          console.log('ok, enviado', response)
-        },
-        error => {
-          console.log(error)
-        }
-      )
     }
     localStorage.removeItem('procesosSeleccionados')
     Swal.fire({
@@ -177,4 +163,14 @@ export class CitarComiteComponent implements OnInit {
       }
     });
   }
+  async sendEmail(process: Proceso) {
+
+    const body3 = new FormData();
+    body3.append('nombre_aprendiz', process.nombreAprendiz);
+    body3.append('nombre_instructor', process.nombreInstructor);
+    body3.append('causas', process.causasProceso);
+
+    await this.http.post(`http://127.0.0.1:8000/evaseg_app/send-email/?correo_destino=${process.emailAprendiz}`, body3).toPromise();
+  }
+
 }
